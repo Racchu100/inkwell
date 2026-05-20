@@ -321,20 +321,20 @@ export default function Home() {
               {usps.map((usp, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-border-linen/30 flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-500 w-full rounded-2xl group"
+                  className="bg-black border border-white/10 flex flex-col overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 w-full rounded-2xl group"
                 >
                   <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden shrink-0">
                     <div
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-750 ease-out"
                       style={{ backgroundImage: `url('${usp.image}')` }}
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                   </div>
                   <div className="p-4 md:p-6 lg:p-7 flex flex-col text-center space-y-2 md:space-y-3 flex-grow justify-between">
-                    <h4 className="font-cormorant font-bold text-base md:text-lg lg:text-xl text-text-primary tracking-wide group-hover:text-accent-gold transition-colors duration-300">
+                    <h4 className="font-cormorant font-bold text-base md:text-lg lg:text-xl text-white tracking-wide group-hover:text-accent-gold transition-colors duration-300">
                       {usp.title}
                     </h4>
-                    <p className="font-lato text-[11px] md:text-xs text-text-secondary leading-relaxed flex-grow">
+                    <p className="font-lato text-[11px] md:text-xs text-white/75 leading-relaxed flex-grow">
                       {usp.description}
                     </p>
                   </div>
