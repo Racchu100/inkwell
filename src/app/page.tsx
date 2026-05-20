@@ -321,7 +321,7 @@ export default function Home() {
               {usps.map((usp, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#545d5f] border border-white/10 flex flex-col overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 w-full rounded-2xl group"
+                  className="bg-[#25292a] border border-white/10 flex flex-col overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 w-full rounded-2xl group"
                 >
                   <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden shrink-0">
                     <div
