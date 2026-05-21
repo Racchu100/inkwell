@@ -183,6 +183,62 @@ const catalogCategories: ProductCatalogItem[] = [
     description: "The ultimate curb-appeal statement. Heavy outdoor-safe acrylic sheets adorned with raised golden 3D metallic lettering, designable logos, and weather-proof LED backlighting.",
     subproducts: ["Raised Golden Acrylic House Name Plate", "Contemporary Backlit LED Board for Offices", "Vintage Wooden Engraved Door Plaque"],
   },
+  {
+    id: "sunboard",
+    num: "20",
+    name: "Sunboard Prints",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600",
+    description: "Lightweight yet rigid foam-core sunboard sheets with vibrant, weather-resistant full-color printing. Ideal for indoor displays, event backdrops, retail signage, and promotional standees.",
+    subproducts: ["Standard Sunboard Print (1ft–6ft)", "Custom Shaped Cut-Out Sunboard", "Double-Sided Sunboard Display", "Matte & Glossy Laminated Sunboard"],
+  },
+  {
+    id: "album-design",
+    num: "21",
+    name: "Album Design Making",
+    image: "https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&q=80&w=600",
+    description: "Professionally crafted photo albums and memory books that preserve your most precious moments. Each layout is custom designed by our studio team with elegant typography, borders, and thematic collage arrangements.",
+    subproducts: ["Wedding Photo Album (20–80 pages)", "Birthday & Anniversary Memory Book", "Baby Milestone Album", "Graduation & Farewell Album", "Corporate Event Album"],
+  },
+  {
+    id: "baby-name-board",
+    num: "22",
+    name: "Baby Name Reveal Boards",
+    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=600",
+    description: "Whimsical, pastel-themed personalised name boards crafted to celebrate a baby's arrival. Features the baby's name in hand-styled lettering with illustrated motifs — stars, animals, clouds, and more.",
+    subproducts: ["Wooden Carved Name Board (12\" / 18\")", "Acrylic Backlit Baby Name Plaque", "Felt Letter Board with Name & Date", "Gender Reveal Themed Board"],
+  },
+  {
+    id: "poster-banner",
+    num: "23",
+    name: "Posters, Banners & Invitation Cards",
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600",
+    description: "High-impact print designs for every occasion — from birthday celebrations and weddings to product launches and corporate events. Crafted with premium print substrates and vibrant inks.",
+    subproducts: ["Birthday & Anniversary Posters", "Wedding Invitation Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners", "Custom Digital Invitation Cards"],
+  },
+  {
+    id: "cards",
+    num: "24",
+    name: "Cards (Identity, Business & Invitations)",
+    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600",
+    description: "Premium quality cards printed on thick, luxury card stock with UV coating, spot gloss, or matte lamination. From professional identity and business cards to beautifully designed certificates and invitation cards.",
+    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Invitation Cards (Wedding / Birthday / Event)", "Thank You & Greeting Cards"],
+  },
+  {
+    id: "photo-frames",
+    num: "25",
+    name: "Premium Photo Frames",
+    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600",
+    description: "Showcase your cherished memories in luxurious, high-definition photo frames. Available in stunning acrylic glass and sparkle-finish materials for a premium display that truly stands out.",
+    subproducts: ["Acrylic Glass Print Photo Frames", "Sparkle High Quality Print Photo Frames", "Multi-Photo Collage Frames", "Floating Frameless Glass Prints", "Heart & Custom Shape Photo Frames"],
+  },
+  {
+    id: "stickers",
+    num: "26",
+    name: "Custom Stickers",
+    image: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&q=80&w=600",
+    description: "Vibrant, waterproof custom stickers in any shape, size, or finish. Perfect for branding, packaging, event decorations, laptops, bottles, gifting, and personal expression.",
+    subproducts: ["Die-Cut Custom Shape Stickers", "Circle & Square Sticker Sheets", "Transparent / Clear Stickers", "Holographic Foil Stickers", "Bulk Branding & Packaging Stickers", "Kids & Fun Theme Sticker Packs"],
+  },
 ];
 
 export default function Services() {
@@ -251,7 +307,7 @@ export default function Services() {
               Personalized Photo Gifting
             </h1>
             <p className="font-lato text-sm md:text-base text-text-secondary max-w-2xl leading-relaxed">
-              Explore all 19 signature product categories. Select a category below to jump directly to its options, and customize your piece via WhatsApp instant chat.
+              Explore all 26 signature product categories. Select a category below to jump directly to its options, and customize your piece via WhatsApp instant chat.
             </p>
           </div>
         </section>
