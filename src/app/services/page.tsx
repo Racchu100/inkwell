@@ -302,7 +302,7 @@ export default function Services() {
   };
 
   const getWhatsAppLink = (catName: string, subProduct?: string) => {
-    const number = "919876543210";
+    const number = "918197175112";
     const product = subProduct ? `${subProduct} (from the ${catName} collection)` : catName;
     const text = encodeURIComponent(
       `Hello Ink Well Colour Crafts Studio! I am very interested in customizing a *${product}*. Could you share some pricing and design options with me?`

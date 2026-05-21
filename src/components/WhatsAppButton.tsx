@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const phoneNumber = "919876543210"; // standard format: country code (91) + number
+  const phoneNumber = "918197175112"; // standard format: country code (91) + number
   const message = encodeURIComponent(
     "Hello InkWell Studio! I am browsing your website and would love to customize some personalized gifts / photo products. Please guide me on the next steps."
   );

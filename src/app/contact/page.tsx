@@ -288,7 +288,7 @@ export default function Contact() {
                   </button>
 
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/918197175112"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-center font-montserrat text-xs tracking-widest uppercase px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl transition-all duration-300 shadow-md flex items-center justify-center space-x-2"
@@ -321,8 +321,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <span className="font-montserrat text-[9px] tracking-wider uppercase text-text-secondary block">Call / WhatsApp</span>
-                      <a href="tel:+919876543210" className="font-montserrat text-[13px] text-text-primary hover:text-accent-gold transition-colors duration-300 font-bold block mt-0.5">
-                        +91 98765 43210
+                      <a href="tel:+918197175112" className="font-montserrat text-[13px] text-text-primary hover:text-accent-gold transition-colors duration-300 font-bold block mt-0.5">
+                        +91 81971 75112
                       </a>
                     </div>
                   </div>
