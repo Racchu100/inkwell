@@ -640,14 +640,30 @@ export default function Services() {
                         <div className="flex flex-wrap gap-1.5">
                           {cat.subproducts.map((sub, sIdx) => {
                             const isActiveSlide = cat.id === "keychains" && sIdx === keychainSlide;
+                            if (cat.id === "keychains") {
+                              return (
+                                <button
+                                  key={sIdx}
+                                  onClick={() => {
+                                    setKeychainSlide(sIdx);
+                                    setKeychainPaused(true);
+                                    setTimeout(() => setKeychainPaused(false), 5000);
+                                  }}
+                                  title={`View ${sub}`}
+                                  className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border transition-all duration-500 cursor-pointer focus:outline-none ${
+                                    isActiveSlide
+                                      ? "bg-accent-gold text-white border-accent-gold font-bold scale-105 shadow-sm"
+                                      : "bg-secondary-bg text-text-primary border-border-linen/35 hover:border-accent-gold/60 hover:text-accent-gold-dark"
+                                  }`}
+                                >
+                                  {sub}
+                                </button>
+                              );
+                            }
                             return (
                               <span
                                 key={sIdx}
-                                className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border transition-all duration-500 ${
-                                  isActiveSlide
-                                    ? "bg-accent-gold text-white border-accent-gold font-bold scale-105 shadow-sm"
-                                    : "bg-secondary-bg text-text-primary border-border-linen/35"
-                                }`}
+                                className="bg-secondary-bg text-text-primary font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border border-border-linen/35"
                               >
                                 {sub}
                               </span>
