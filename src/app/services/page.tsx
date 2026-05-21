@@ -10,6 +10,7 @@ interface ProductCatalogItem {
   num: string;
   name: string;
   image: string;
+  images?: string[];
   description: string;
   subproducts: string[];
 }
@@ -19,7 +20,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "keychains",
     num: "01",
     name: "Custom Keychains",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600",
+    image: "/keychain_acrylic_photo.png",
+    images: [
+      "/keychain_acrylic_photo.png",
+      "/keychain_heavy_metal.png",
+      "/keychain_name_cut_metallic.png",
+    ],
     description: "Compact and stylish tokens of affection. Ideal for couples, new homeowners, and automotive keys. Available in high-gloss transparency or brushed heavy metals.",
     subproducts: ["Acrylic Photo Keychains", "Heavy Metal Engraved Keychains", "Name-Cut Metallic Keychains"],
   },
@@ -245,6 +251,17 @@ export default function Services() {
   const [activeCategory, setActiveCategory] = useState("keychains");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [keychainSlide, setKeychainSlide] = useState(0);
+  const [keychainPaused, setKeychainPaused] = useState(false);
+
+  // Auto-advance keychain carousel every 3 seconds
+  useEffect(() => {
+    if (keychainPaused) return;
+    const timer = setInterval(() => {
+      setKeychainSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [keychainPaused]);
 
   const filteredCategories = catalogCategories.filter(
     (cat) =>
@@ -487,17 +504,93 @@ export default function Services() {
                   className="bg-white border border-border-linen/30 shadow-sm p-4 md:p-6 lg:p-8 flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8 scroll-mt-28 transition-all duration-500 hover:shadow-md rounded-2xl"
                 >
                   {/* Visual Section */}
-                  <div className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl">
+                  {cat.images ? (
+                    /* === Carousel for categories with multiple images === */
                     <div
-                      className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700"
-                      style={{ backgroundImage: `url('${cat.image}')` }}
-                    />
-                    <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center">
-                      <span className="font-montserrat text-[10px] text-accent-gold-dark font-bold">
-                        {cat.num}
-                      </span>
+                      className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl select-none"
+                      onMouseEnter={() => cat.id === "keychains" && setKeychainPaused(true)}
+                      onMouseLeave={() => cat.id === "keychains" && setKeychainPaused(false)}
+                    >
+                      {/* Slides */}
+                      {cat.images.map((img, slideIdx) => (
+                        <div
+                          key={slideIdx}
+                          className={`absolute inset-0 transition-opacity duration-700 ${
+                            cat.id === "keychains"
+                              ? slideIdx === keychainSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                              : slideIdx === 0 ? "opacity-100" : "opacity-0"
+                          }`}
+                        >
+                          <div
+                            className="absolute inset-0 bg-cover bg-center"
+                            style={{ backgroundImage: `url('${img}')` }}
+                          />
+                        </div>
+                      ))}
+
+                      {/* Category number badge */}
+                      <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center z-20">
+                        <span className="font-montserrat text-[10px] text-accent-gold-dark font-bold">
+                          {cat.num}
+                        </span>
+                      </div>
+
+                      {/* Prev / Next arrows */}
+                      {cat.id === "keychains" && (
+                        <>
+                          <button
+                            onClick={() => setKeychainSlide((prev) => (prev - 1 + 3) % 3)}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
+                            aria-label="Previous slide"
+                          >
+                            <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                          </button>
+                          <button
+                            onClick={() => setKeychainSlide((prev) => (prev + 1) % 3)}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
+                            aria-label="Next slide"
+                          >
+                            <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                        </>
+                      )}
+
+                      {/* Dot indicators */}
+                      {cat.id === "keychains" && (
+                        <div className="absolute bottom-2.5 left-0 w-full flex justify-center gap-1.5 z-20">
+                          {cat.images.map((_, dotIdx) => (
+                            <button
+                              key={dotIdx}
+                              onClick={() => setKeychainSlide(dotIdx)}
+                              className={`rounded-full transition-all duration-300 ${
+                                dotIdx === keychainSlide
+                                  ? "w-5 h-1.5 bg-accent-gold"
+                                  : "w-1.5 h-1.5 bg-white/60"
+                              }`}
+                              aria-label={`Slide ${dotIdx + 1}`}
+                            />
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </div>
+                  ) : (
+                    /* === Static image for all other categories === */
+                    <div className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700"
+                        style={{ backgroundImage: `url('${cat.image}')` }}
+                      />
+                      <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center">
+                        <span className="font-montserrat text-[10px] text-accent-gold-dark font-bold">
+                          {cat.num}
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Content Section */}
                   <div className="flex-grow flex flex-col justify-between space-y-4">
@@ -518,14 +611,21 @@ export default function Services() {
                           Sub-Products & Finishes:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
-                          {cat.subproducts.map((sub, sIdx) => (
-                            <span
-                              key={sIdx}
-                              className="bg-secondary-bg text-text-primary font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border border-border-linen/35"
-                            >
-                              {sub}
-                            </span>
-                          ))}
+                          {cat.subproducts.map((sub, sIdx) => {
+                            const isActiveSlide = cat.id === "keychains" && sIdx === keychainSlide;
+                            return (
+                              <span
+                                key={sIdx}
+                                className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border transition-all duration-500 ${
+                                  isActiveSlide
+                                    ? "bg-accent-gold text-white border-accent-gold font-bold scale-105 shadow-sm"
+                                    : "bg-secondary-bg text-text-primary border-border-linen/35"
+                                }`}
+                              >
+                                {sub}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
