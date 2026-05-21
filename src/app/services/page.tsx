@@ -301,10 +301,11 @@ export default function Services() {
     }
   };
 
-  const getWhatsAppLink = (catName: string) => {
+  const getWhatsAppLink = (catName: string, subProduct?: string) => {
     const number = "919876543210";
+    const product = subProduct ? `${subProduct} (from the ${catName} collection)` : catName;
     const text = encodeURIComponent(
-      `Hello Ink Well Colour Crafts Studio! I am very interested in customizing a product from your '${catName}' collection. Could you share some pricing and layout designs with me?`
+      `Hello Ink Well Colour Crafts Studio! I am very interested in customizing a *${product}*. Could you share some pricing and design options with me?`
     );
     return `https://wa.me/${number}?text=${text}`;
   };
@@ -561,7 +562,7 @@ export default function Services() {
 
                       {/* Dot indicators */}
                       {cat.id === "keychains" && (
-                        <div className="absolute bottom-2.5 left-0 w-full flex justify-center gap-1.5 z-20">
+                        <div className="absolute bottom-14 left-0 w-full flex justify-center gap-1.5 z-20">
                           {cat.images.map((_, dotIdx) => (
                             <button
                               key={dotIdx}
@@ -576,19 +577,45 @@ export default function Services() {
                           ))}
                         </div>
                       )}
+
+                      {/* WhatsApp CTA Overlay — carousel (links to exact active sub-product) */}
+                      <a
+                        href={getWhatsAppLink(cat.name, cat.id === "keychains" ? cat.subproducts[keychainSlide] : undefined)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute bottom-0 left-0 right-0 z-30 flex items-center justify-center gap-2 py-3 bg-[#25D366]/90 hover:bg-[#128C7E] backdrop-blur-sm text-white font-montserrat text-[10px] tracking-widest uppercase font-semibold transition-all duration-300"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662z" />
+                        </svg>
+                        <span>Customize via WhatsApp</span>
+                      </a>
                     </div>
                   ) : (
                     /* === Static image for all other categories === */
-                    <div className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl">
+                    <div className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl group">
                       <div
-                        className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700"
+                        className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
                         style={{ backgroundImage: `url('${cat.image}')` }}
                       />
-                      <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center">
+                      <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center z-10">
                         <span className="font-montserrat text-[10px] text-accent-gold-dark font-bold">
                           {cat.num}
                         </span>
                       </div>
+                      {/* WhatsApp CTA Overlay — static image */}
+                      <a
+                        href={getWhatsAppLink(cat.name)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-2 py-3 bg-[#25D366]/90 hover:bg-[#128C7E] backdrop-blur-sm text-white font-montserrat text-[10px] tracking-widest uppercase font-semibold transition-all duration-300"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662z" />
+                        </svg>
+                        <span>Customize via WhatsApp</span>
+                      </a>
                     </div>
                   )}
 
@@ -630,26 +657,7 @@ export default function Services() {
                       </div>
                     </div>
 
-                    {/* Ordering CTA */}
-                    <div className="pt-3 border-t border-border-linen/15 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                      <div>
-                        <span className="text-[9px] font-lato text-text-secondary">Starting curation at</span>
-                        <p className="font-montserrat text-[10px] sm:text-xs text-accent-gold-dark font-bold uppercase tracking-wider mt-0.5">
-                          Inquire for Pricing Quote
-                        </p>
-                      </div>
-                      <a
-                        href={getWhatsAppLink(cat.name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full sm:w-auto text-center font-montserrat text-xs tracking-widest uppercase px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-green-500/10 flex items-center justify-center space-x-2"
-                      >
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662z" />
-                        </svg>
-                        <span>Customize via WhatsApp</span>
-                      </a>
-                    </div>
+
                   </div>
                 </div>
               ))
