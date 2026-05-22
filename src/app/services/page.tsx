@@ -804,10 +804,15 @@ export default function Services() {
                                 </button>
                               );
                             }
+                            const isSingleProduct = cat.subproducts.length === 1;
                             return (
                               <span
                                 key={sIdx}
-                                className="bg-secondary-bg text-text-primary font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border border-border-linen/35"
+                                className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border ${
+                                  isSingleProduct
+                                    ? "bg-accent-gold text-white border-accent-gold font-bold shadow-sm"
+                                    : "bg-secondary-bg text-text-primary border-border-linen/35"
+                                }`}
                               >
                                 {sub}
                               </span>
