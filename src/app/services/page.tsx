@@ -92,7 +92,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "rotating-lamp",
     num: "05",
     name: "Rotating & Shadow Lamps",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=600",
+    image: "/lamp_big.jpg",
+    images: [
+      "/lamp_big.jpg",
+      "/lamp_heart.jpg",
+      "/lamp_shadow.jpg",
+      "/lamp_hexagonal.jpg",
+    ],
     description: "A gorgeous interplay of light and shade. Features high-quality internal rotation motors and elegant laser-cut shadow templates that reflect beautiful message art on your bedroom walls.",
     subproducts: ["Big Rotating Lamp (Multi-Photo)", "Heart-Shaped Rotating Lamp", "Personalized Wooden Shadow Box", "Hexagonal LED Rotating Lamp"],
   },
@@ -286,6 +292,8 @@ export default function Services() {
   const [mirrorPaused, setMirrorPaused] = useState(false);
   const [pillowSlide, setPillowSlide] = useState(0);
   const [pillowPaused, setPillowPaused] = useState(false);
+  const [lampSlide, setLampSlide] = useState(0);
+  const [lampPaused, setLampPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -332,18 +340,29 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [pillowPaused]);
 
+  // Auto-advance rotating lamp carousel every 3 seconds
+  useEffect(() => {
+    if (lampPaused) return;
+    const timer = setInterval(() => {
+      setLampSlide((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [lampPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
     : catId === "coffee-mugs" ? mugSlide
     : catId === "magic-mirror" ? mirrorSlide
     : catId === "pillows" ? pillowSlide
+    : catId === "rotating-lamp" ? lampSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
     else if (catId === "coffee-mugs") setMugSlide(idx);
     else if (catId === "magic-mirror") setMirrorSlide(idx);
     else if (catId === "pillows") setPillowSlide(idx);
+    else if (catId === "rotating-lamp") setLampSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -351,6 +370,7 @@ export default function Services() {
     else if (catId === "coffee-mugs") setMugPaused(val);
     else if (catId === "magic-mirror") setMirrorPaused(val);
     else if (catId === "pillows") setPillowPaused(val);
+    else if (catId === "rotating-lamp") setLampPaused(val);
     else setKeychainPaused(val);
   };
 
