@@ -49,8 +49,6 @@ const catalogCategories: ProductCatalogItem[] = [
     image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600",
     description: "Elevate daily coffee rituals. Choose from standard ceramic, heat-activated color-changing magic mugs, or heavy insulated steel sports bottles.",
     subproducts: [
-      "White Ceramic Mug (11oz / 15oz)",
-      "Three-Tone Contrast Mugs",
       "Three-Tone Heart Handle Custom Mugs",
       "Patch Print Editorial Mugs",
       "Magic Heat-Revealing Mugs",
