@@ -174,9 +174,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "table-top-clock",
     num: "12",
     name: "Table Top Art Clocks",
-    image: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&q=80&w=600",
+    image: "/table_top_clock.jpg",
+    images: [
+      "/table_top_clock.jpg",
+      "/table_top_multi.jpg",
+    ],
     description: "Functional desktop art pieces with premium brass clock needles. Beautifully styled backdrops printed on heavy acrylics or composite wood sheets.",
-    subproducts: ["Minimalist Acrylic Desk Clock", "Vintage Editorial Wooden Desk Clock", "Contemporary Multi-Photo Table Clock (4 Designs)"],
+    subproducts: ["Minimalist Acrylic Desk Clock", "Contemporary Multi-Photo Table Clock (4 Designs)"],
   },
   {
     id: "caricature-table-top",
@@ -314,6 +318,8 @@ export default function Services() {
   const [slatePaused, setSlatePaused] = useState(false);
   const [mousepadSlide, setMousepadSlide] = useState(0);
   const [mousepadPaused, setMousepadPaused] = useState(false);
+  const [tableClockSlide, setTableClockSlide] = useState(0);
+  const [tableClockPaused, setTableClockPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -396,6 +402,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [mousepadPaused]);
 
+  // Auto-advance table clock carousel every 3 seconds
+  useEffect(() => {
+    if (tableClockPaused) return;
+    const timer = setInterval(() => {
+      setTableClockSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [tableClockPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -406,6 +421,7 @@ export default function Services() {
     : catId === "glass-frames" ? glassSlide
     : catId === "rock-frames" ? slateSlide
     : catId === "mousepad" ? mousepadSlide
+    : catId === "table-top-clock" ? tableClockSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -416,6 +432,7 @@ export default function Services() {
     else if (catId === "glass-frames") setGlassSlide(idx);
     else if (catId === "rock-frames") setSlateSlide(idx);
     else if (catId === "mousepad") setMousepadSlide(idx);
+    else if (catId === "table-top-clock") setTableClockSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -427,6 +444,7 @@ export default function Services() {
     else if (catId === "glass-frames") setGlassPaused(val);
     else if (catId === "rock-frames") setSlatePaused(val);
     else if (catId === "mousepad") setMousepadPaused(val);
+    else if (catId === "table-top-clock") setTableClockPaused(val);
     else setKeychainPaused(val);
   };
 
