@@ -186,9 +186,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "caricature-table-top",
     num: "13",
     name: "Caricature Table Tops",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600",
+    image: "/caricature_bike.jpg",
+    images: [
+      "/caricature_bike.jpg",
+      "/caricature_superhero.jpg",
+    ],
     description: "A fun, animated perspective! Our professional graphic designers map your faces onto artistic, high-resolution comic bodies. Perfect for quirky couples, professional milestones, and friend birthdays.",
-    subproducts: ["Quirky Couple Caricature Stand (8\" / 10\")", "Super Hero Caricature Stand", "Professional / Corporate Milestone Stand (14\")"],
+    subproducts: ["Quirky Couple Caricature Stand (8\" / 10\")", "Super Hero Caricature Stand"],
   },
   {
     id: "led-table-top",
@@ -320,6 +324,8 @@ export default function Services() {
   const [mousepadPaused, setMousepadPaused] = useState(false);
   const [tableClockSlide, setTableClockSlide] = useState(0);
   const [tableClockPaused, setTableClockPaused] = useState(false);
+  const [caricatureSlide, setCaricatureSlide] = useState(0);
+  const [caricaturePaused, setCaricaturePaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -411,6 +417,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [tableClockPaused]);
 
+  // Auto-advance caricature carousel every 3 seconds
+  useEffect(() => {
+    if (caricaturePaused) return;
+    const timer = setInterval(() => {
+      setCaricatureSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [caricaturePaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -422,6 +437,7 @@ export default function Services() {
     : catId === "rock-frames" ? slateSlide
     : catId === "mousepad" ? mousepadSlide
     : catId === "table-top-clock" ? tableClockSlide
+    : catId === "caricature-table-top" ? caricatureSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -433,6 +449,7 @@ export default function Services() {
     else if (catId === "rock-frames") setSlateSlide(idx);
     else if (catId === "mousepad") setMousepadSlide(idx);
     else if (catId === "table-top-clock") setTableClockSlide(idx);
+    else if (catId === "caricature-table-top") setCaricatureSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -445,6 +462,7 @@ export default function Services() {
     else if (catId === "rock-frames") setSlatePaused(val);
     else if (catId === "mousepad") setMousepadPaused(val);
     else if (catId === "table-top-clock") setTableClockPaused(val);
+    else if (catId === "caricature-table-top") setCaricaturePaused(val);
     else setKeychainPaused(val);
   };
 
