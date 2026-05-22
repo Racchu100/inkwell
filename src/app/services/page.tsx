@@ -132,7 +132,7 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "bluetooth-speaker",
     num: "08",
     name: "Bluetooth Speakers",
-    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=600",
+    image: "/bluetooth_speaker.jpg",
     description: "Wireless speakers featuring high-fidelity sound, glowing warm LED illumination, and a circular custom printed photo layout on the speaker grill or top plate.",
     subproducts: ["Customized/Personalized Bluetooth Speaker with Photo"],
   },
