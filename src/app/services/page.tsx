@@ -46,7 +46,14 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "coffee-mugs",
     num: "03",
     name: "Custom Coffee Mugs & Bottles",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600",
+    image: "/mug_heart_handle.png",
+    images: [
+      "/mug_heart_handle.png",
+      "/mug_patch_print.png",
+      "/mug_magic_heat.png",
+      "/mug_luxury_gold.png",
+      "/mug_insulated_bottle.png",
+    ],
     description: "Elevate daily coffee rituals. Choose from standard ceramic, heat-activated color-changing magic mugs, or heavy insulated steel sports bottles.",
     subproducts: [
       "Three-Tone Heart Handle Custom Mugs",
@@ -264,6 +271,8 @@ export default function Services() {
   const [keychainPaused, setKeychainPaused] = useState(false);
   const [walletSlide, setWalletSlide] = useState(0);
   const [walletPaused, setWalletPaused] = useState(false);
+  const [mugSlide, setMugSlide] = useState(0);
+  const [mugPaused, setMugPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -283,14 +292,28 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [walletPaused]);
 
+  // Auto-advance mug carousel every 3 seconds
+  useEffect(() => {
+    if (mugPaused) return;
+    const timer = setInterval(() => {
+      setMugSlide((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [mugPaused]);
+
   // Helper: get active slide index for a category
-  const getSlide = (catId: string) => catId === "wallets" ? walletSlide : keychainSlide;
+  const getSlide = (catId: string) =>
+    catId === "wallets" ? walletSlide
+    : catId === "coffee-mugs" ? mugSlide
+    : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
+    else if (catId === "coffee-mugs") setMugSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
     if (catId === "wallets") setWalletPaused(val);
+    else if (catId === "coffee-mugs") setMugPaused(val);
     else setKeychainPaused(val);
   };
 
