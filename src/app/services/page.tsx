@@ -79,7 +79,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "pillows",
     num: "04",
     name: "Personalized Cushions & Pillows",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&q=80&w=600",
+    image: "/pillow_heart.jpg",
+    images: [
+      "/pillow_heart.jpg",
+      "/pillow_square.jpg",
+      "/pillow_sequin.jpg",
+    ],
     description: "Luxuriously soft throw pillows that add character to sofas and bedrooms. Choose between elegant shapes or interactive color-swiping sequins.",
     subproducts: ["Heart Shaped Photo Pillow", "Square Velvet Throw Pillow", "Interactive Magic Sequin Pillow"],
   },
@@ -279,6 +284,8 @@ export default function Services() {
   const [mugPaused, setMugPaused] = useState(false);
   const [mirrorSlide, setMirrorSlide] = useState(0);
   const [mirrorPaused, setMirrorPaused] = useState(false);
+  const [pillowSlide, setPillowSlide] = useState(0);
+  const [pillowPaused, setPillowPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -316,22 +323,34 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [mirrorPaused]);
 
+  // Auto-advance pillow carousel every 3 seconds
+  useEffect(() => {
+    if (pillowPaused) return;
+    const timer = setInterval(() => {
+      setPillowSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [pillowPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
     : catId === "coffee-mugs" ? mugSlide
     : catId === "magic-mirror" ? mirrorSlide
+    : catId === "pillows" ? pillowSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
     else if (catId === "coffee-mugs") setMugSlide(idx);
     else if (catId === "magic-mirror") setMirrorSlide(idx);
+    else if (catId === "pillows") setPillowSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
     if (catId === "wallets") setWalletPaused(val);
     else if (catId === "coffee-mugs") setMugPaused(val);
     else if (catId === "magic-mirror") setMirrorPaused(val);
+    else if (catId === "pillows") setPillowPaused(val);
     else setKeychainPaused(val);
   };
 
