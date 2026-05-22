@@ -131,10 +131,10 @@ const catalogCategories: ProductCatalogItem[] = [
   {
     id: "bluetooth-speaker",
     num: "08",
-    name: "Bluetooth Speaker Clocks",
+    name: "Bluetooth Speakers",
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=600",
     description: "Wireless speakers featuring high-fidelity sound, glowing warm LED illumination, and a circular custom printed photo layout on the speaker grill or top plate.",
-    subproducts: ["Round Bluetooth Speaker (Photo Plate)", "Smart Touch Bedside Speaker Lamp with Photo"],
+    subproducts: ["Customized/Personalized Bluetooth Speaker with Photo"],
   },
   {
     id: "alarm-clock",
