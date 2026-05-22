@@ -119,7 +119,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "rock-frames",
     num: "07",
     name: "Rustic Rock Slate Frames",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600",
+    image: "/slate_square.jpg",
+    images: [
+      "/slate_square.jpg",
+      "/slate_rectangle.jpg",
+      "/slate_heart.jpg",
+    ],
     description: "Hand-chiseled natural slate stones that boast organic, rough textures around the borders. High-gloss visual print layer prevents color fading and ensures an artisanal feel.",
     subproducts: ["Square Natural Stone Slate (6x6\")", "Rectangular Rock Slate Frame (8x6\")", "Heart-Shaped Stone Photo Plaque"],
   },
@@ -301,6 +306,8 @@ export default function Services() {
   const [lampPaused, setLampPaused] = useState(false);
   const [glassSlide, setGlassSlide] = useState(0);
   const [glassPaused, setGlassPaused] = useState(false);
+  const [slateSlide, setSlateSlide] = useState(0);
+  const [slatePaused, setSlatePaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -365,6 +372,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [glassPaused]);
 
+  // Auto-advance rock slate carousel every 3 seconds
+  useEffect(() => {
+    if (slatePaused) return;
+    const timer = setInterval(() => {
+      setSlateSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [slatePaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -373,6 +389,7 @@ export default function Services() {
     : catId === "pillows" ? pillowSlide
     : catId === "rotating-lamp" ? lampSlide
     : catId === "glass-frames" ? glassSlide
+    : catId === "rock-frames" ? slateSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -381,6 +398,7 @@ export default function Services() {
     else if (catId === "pillows") setPillowSlide(idx);
     else if (catId === "rotating-lamp") setLampSlide(idx);
     else if (catId === "glass-frames") setGlassSlide(idx);
+    else if (catId === "rock-frames") setSlateSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -390,6 +408,7 @@ export default function Services() {
     else if (catId === "pillows") setPillowPaused(val);
     else if (catId === "rotating-lamp") setLampPaused(val);
     else if (catId === "glass-frames") setGlassPaused(val);
+    else if (catId === "rock-frames") setSlatePaused(val);
     else setKeychainPaused(val);
   };
 
