@@ -94,7 +94,7 @@ const catalogCategories: ProductCatalogItem[] = [
     name: "Rotating & Shadow Lamps",
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=600",
     description: "A gorgeous interplay of light and shade. Features high-quality internal rotation motors and elegant laser-cut shadow templates that reflect beautiful message art on your bedroom walls.",
-    subproducts: ["Small Cylindrical Rotating Lamp", "Big Rotating Lamp (Multi-Photo)", "Heart-Shaped Rotating Lamp", "Personalized Wooden Shadow Box", "Hexagonal LED Rotating Lamp"],
+    subproducts: ["Big Rotating Lamp (Multi-Photo)", "Heart-Shaped Rotating Lamp", "Personalized Wooden Shadow Box", "Hexagonal LED Rotating Lamp"],
   },
   {
     id: "glass-frames",
