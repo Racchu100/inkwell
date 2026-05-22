@@ -35,7 +35,7 @@ const catalogCategories: ProductCatalogItem[] = [
     name: "Luxury Engraved Wallets",
     image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=600",
     description: "Handcrafted, curated vegan leather wallets and passport sleeves. Personalize with high-precision engraving of names, birthdays, or special vector illustrations.",
-    subproducts: ["Mens Premium Classic (Name + Charm)", "Engraved Photo Wallets", "Womens Clutches & Zip Wallets", "Passport Covers (Custom Engraved Names)"],
+    subproducts: ["Engraved Photo Wallets", "Womens Clutches & Zip Wallets", "Passport Covers (Custom Engraved Names)"],
   },
   {
     id: "coffee-mugs",
