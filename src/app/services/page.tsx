@@ -148,7 +148,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "mousepad",
     num: "10",
     name: "Custom Mousepads",
-    image: "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?auto=format&fit=crop&q=80&w=600",
+    image: "/mousepad_collage.jpg",
+    images: [
+      "/mousepad_collage.jpg",
+      "/mousepad_anime.jpg",
+    ],
     description: "High-grade neoprene pads with non-slip rubber backs and ultra-smooth tracking fabrics. Customize with inspirational office typography, family grids, or calendar overlays.",
     subproducts: ["Standard Custom Desk Pad (9x7\")", "Large Panoramic Gaming Pad (30x15\")"],
   },
@@ -308,6 +312,8 @@ export default function Services() {
   const [glassPaused, setGlassPaused] = useState(false);
   const [slateSlide, setSlateSlide] = useState(0);
   const [slatePaused, setSlatePaused] = useState(false);
+  const [mousepadSlide, setMousepadSlide] = useState(0);
+  const [mousepadPaused, setMousepadPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -381,6 +387,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [slatePaused]);
 
+  // Auto-advance mousepad carousel every 3 seconds
+  useEffect(() => {
+    if (mousepadPaused) return;
+    const timer = setInterval(() => {
+      setMousepadSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [mousepadPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -390,6 +405,7 @@ export default function Services() {
     : catId === "rotating-lamp" ? lampSlide
     : catId === "glass-frames" ? glassSlide
     : catId === "rock-frames" ? slateSlide
+    : catId === "mousepad" ? mousepadSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -399,6 +415,7 @@ export default function Services() {
     else if (catId === "rotating-lamp") setLampSlide(idx);
     else if (catId === "glass-frames") setGlassSlide(idx);
     else if (catId === "rock-frames") setSlateSlide(idx);
+    else if (catId === "mousepad") setMousepadSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -409,6 +426,7 @@ export default function Services() {
     else if (catId === "rotating-lamp") setLampPaused(val);
     else if (catId === "glass-frames") setGlassPaused(val);
     else if (catId === "rock-frames") setSlatePaused(val);
+    else if (catId === "mousepad") setMousepadPaused(val);
     else setKeychainPaused(val);
   };
 
