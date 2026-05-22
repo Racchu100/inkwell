@@ -106,7 +106,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "glass-frames",
     num: "06",
     name: "Bespoke Glass Frames",
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=600",
+    image: "/glass_triptych.jpg",
+    images: [
+      "/glass_triptych.jpg",
+      "/glass_clock.jpg",
+      "/glass_plaque.jpg",
+    ],
     description: "Sleek, frameless glass sheets featuring high-definition direct sub-surface printing. Available with integrated premium silent clock movements and custom multi-photo layouts.",
     subproducts: ["3-Image Triptych Glass Frame", "Clock-Integrated Glass Photo Frame", "Floating Glass Plaque (With Stand)"],
   },
@@ -294,6 +299,8 @@ export default function Services() {
   const [pillowPaused, setPillowPaused] = useState(false);
   const [lampSlide, setLampSlide] = useState(0);
   const [lampPaused, setLampPaused] = useState(false);
+  const [glassSlide, setGlassSlide] = useState(0);
+  const [glassPaused, setGlassPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -349,6 +356,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [lampPaused]);
 
+  // Auto-advance glass frame carousel every 3 seconds
+  useEffect(() => {
+    if (glassPaused) return;
+    const timer = setInterval(() => {
+      setGlassSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [glassPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -356,6 +372,7 @@ export default function Services() {
     : catId === "magic-mirror" ? mirrorSlide
     : catId === "pillows" ? pillowSlide
     : catId === "rotating-lamp" ? lampSlide
+    : catId === "glass-frames" ? glassSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -363,6 +380,7 @@ export default function Services() {
     else if (catId === "magic-mirror") setMirrorSlide(idx);
     else if (catId === "pillows") setPillowSlide(idx);
     else if (catId === "rotating-lamp") setLampSlide(idx);
+    else if (catId === "glass-frames") setGlassSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -371,6 +389,7 @@ export default function Services() {
     else if (catId === "magic-mirror") setMirrorPaused(val);
     else if (catId === "pillows") setPillowPaused(val);
     else if (catId === "rotating-lamp") setLampPaused(val);
+    else if (catId === "glass-frames") setGlassPaused(val);
     else setKeychainPaused(val);
   };
 
