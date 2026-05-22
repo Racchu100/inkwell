@@ -67,7 +67,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "magic-mirror",
     num: "03A",
     name: "Magic Mirror Frames",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=600",
+    image: "/mirror_round.jpg",
+    images: [
+      "/mirror_round.jpg",
+      "/mirror_heart.jpg",
+    ],
     description: "Stunning illuminated photo frames that double as decorative mirrors. Featuring built-in warm LED rings around your favourite photo prints, creating a glowing halo effect perfect for bedrooms and gifting.",
     subproducts: ["Round Magic Mirror (Photo + LED Frame)", "Heart Magic Mirror (Photo + LED Frame)"],
   },
@@ -273,6 +277,8 @@ export default function Services() {
   const [walletPaused, setWalletPaused] = useState(false);
   const [mugSlide, setMugSlide] = useState(0);
   const [mugPaused, setMugPaused] = useState(false);
+  const [mirrorSlide, setMirrorSlide] = useState(0);
+  const [mirrorPaused, setMirrorPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -301,19 +307,31 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [mugPaused]);
 
+  // Auto-advance magic mirror carousel every 3 seconds
+  useEffect(() => {
+    if (mirrorPaused) return;
+    const timer = setInterval(() => {
+      setMirrorSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [mirrorPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
     : catId === "coffee-mugs" ? mugSlide
+    : catId === "magic-mirror" ? mirrorSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
     else if (catId === "coffee-mugs") setMugSlide(idx);
+    else if (catId === "magic-mirror") setMirrorSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
     if (catId === "wallets") setWalletPaused(val);
     else if (catId === "coffee-mugs") setMugPaused(val);
+    else if (catId === "magic-mirror") setMirrorPaused(val);
     else setKeychainPaused(val);
   };
 
