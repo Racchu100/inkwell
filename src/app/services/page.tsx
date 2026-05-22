@@ -140,9 +140,9 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "alarm-clock",
     num: "09",
     name: "Cubical Alarm Clocks",
-    image: "https://images.unsplash.com/photo-1563861826100-9cb868fdcd1d?auto=format&fit=crop&q=80&w=600",
+    image: "/cube_clock.jpg",
     description: "Sleek, glowing cubical alarm clocks with temperature sensors. Personalize up to 4 sides with high-quality translucent prints that glow elegantly when the backlights activate.",
-    subproducts: ["Multi-Color LED Glowing Cube Clock", "Digital Desk Clock with Custom Sides"],
+    subproducts: ["Multi-Color LED Glowing Cube Clock"],
   },
   {
     id: "mousepad",
