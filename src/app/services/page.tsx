@@ -54,9 +54,15 @@ const catalogCategories: ProductCatalogItem[] = [
       "Magic Heat-Revealing Mugs",
       "Luxury Silver & Gold Coated Mugs",
       "Insulated Metal Bottle (600ml / 750ml)",
-      "Round Magic Mirror (Photo + LED Frame)",
-      "Heart Magic Mirror (Photo + LED Frame)",
     ],
+  },
+  {
+    id: "magic-mirror",
+    num: "03A",
+    name: "Magic Mirror Frames",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=600",
+    description: "Stunning illuminated photo frames that double as decorative mirrors. Featuring built-in warm LED rings around your favourite photo prints, creating a glowing halo effect perfect for bedrooms and gifting.",
+    subproducts: ["Round Magic Mirror (Photo + LED Frame)", "Heart Magic Mirror (Photo + LED Frame)"],
   },
   {
     id: "pillows",
