@@ -33,7 +33,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wallets",
     num: "02",
     name: "Luxury Engraved Wallets",
-    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=600",
+    image: "/wallet_engraved_photo.png",
+    images: [
+      "/wallet_engraved_photo.png",
+      "/wallet_womens_clutch.png",
+      "/wallet_passport_cover.png",
+    ],
     description: "Handcrafted, curated vegan leather wallets and passport sleeves. Personalize with high-precision engraving of names, birthdays, or special vector illustrations.",
     subproducts: ["Engraved Photo Wallets", "Womens Clutches & Zip Wallets", "Passport Covers (Custom Engraved Names)"],
   },
@@ -253,6 +258,8 @@ export default function Services() {
   const [searchQuery, setSearchQuery] = useState("");
   const [keychainSlide, setKeychainSlide] = useState(0);
   const [keychainPaused, setKeychainPaused] = useState(false);
+  const [walletSlide, setWalletSlide] = useState(0);
+  const [walletPaused, setWalletPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -262,6 +269,26 @@ export default function Services() {
     }, 3000);
     return () => clearInterval(timer);
   }, [keychainPaused]);
+
+  // Auto-advance wallet carousel every 3 seconds
+  useEffect(() => {
+    if (walletPaused) return;
+    const timer = setInterval(() => {
+      setWalletSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [walletPaused]);
+
+  // Helper: get active slide index for a category
+  const getSlide = (catId: string) => catId === "wallets" ? walletSlide : keychainSlide;
+  const setSlide = (catId: string, idx: number) => {
+    if (catId === "wallets") setWalletSlide(idx);
+    else setKeychainSlide(idx);
+  };
+  const setPaused = (catId: string, val: boolean) => {
+    if (catId === "wallets") setWalletPaused(val);
+    else setKeychainPaused(val);
+  };
 
   const filteredCategories = catalogCategories.filter(
     (cat) =>
@@ -509,17 +536,15 @@ export default function Services() {
                     /* === Carousel for categories with multiple images === */
                     <div
                       className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl select-none"
-                      onMouseEnter={() => cat.id === "keychains" && setKeychainPaused(true)}
-                      onMouseLeave={() => cat.id === "keychains" && setKeychainPaused(false)}
+                      onMouseEnter={() => setPaused(cat.id, true)}
+                      onMouseLeave={() => setPaused(cat.id, false)}
                     >
                       {/* Slides */}
                       {cat.images.map((img, slideIdx) => (
                         <div
                           key={slideIdx}
                           className={`absolute inset-0 transition-opacity duration-700 ${
-                            cat.id === "keychains"
-                              ? slideIdx === keychainSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-                              : slideIdx === 0 ? "opacity-100" : "opacity-0"
+                            slideIdx === getSlide(cat.id) ? "opacity-100 z-10" : "opacity-0 z-0"
                           }`}
                         >
                           <div
@@ -537,50 +562,46 @@ export default function Services() {
                       </div>
 
                       {/* Prev / Next arrows */}
-                      {cat.id === "keychains" && (
-                        <>
-                          <button
-                            onClick={() => setKeychainSlide((prev) => (prev - 1 + 3) % 3)}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
-                            aria-label="Previous slide"
-                          >
-                            <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
-                          </button>
-                          <button
-                            onClick={() => setKeychainSlide((prev) => (prev + 1) % 3)}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
-                            aria-label="Next slide"
-                          >
-                            <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                          </button>
-                        </>
-                      )}
+                      <>
+                        <button
+                          onClick={() => setSlide(cat.id, (getSlide(cat.id) - 1 + cat.images!.length) % cat.images!.length)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
+                          aria-label="Previous slide"
+                        >
+                          <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={() => setSlide(cat.id, (getSlide(cat.id) + 1) % cat.images!.length)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200"
+                          aria-label="Next slide"
+                        >
+                          <svg className="w-3.5 h-3.5 text-text-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </>
 
                       {/* Dot indicators */}
-                      {cat.id === "keychains" && (
-                        <div className="absolute bottom-14 left-0 w-full flex justify-center gap-1.5 z-20">
-                          {cat.images.map((_, dotIdx) => (
-                            <button
-                              key={dotIdx}
-                              onClick={() => setKeychainSlide(dotIdx)}
-                              className={`rounded-full transition-all duration-300 ${
-                                dotIdx === keychainSlide
-                                  ? "w-5 h-1.5 bg-accent-gold"
-                                  : "w-1.5 h-1.5 bg-white/60"
-                              }`}
-                              aria-label={`Slide ${dotIdx + 1}`}
-                            />
-                          ))}
-                        </div>
-                      )}
+                      <div className="absolute bottom-14 left-0 w-full flex justify-center gap-1.5 z-20">
+                        {cat.images.map((_, dotIdx) => (
+                          <button
+                            key={dotIdx}
+                            onClick={() => setSlide(cat.id, dotIdx)}
+                            className={`rounded-full transition-all duration-300 ${
+                              dotIdx === getSlide(cat.id)
+                                ? "w-5 h-1.5 bg-accent-gold"
+                                : "w-1.5 h-1.5 bg-white/60"
+                            }`}
+                            aria-label={`Slide ${dotIdx + 1}`}
+                          />
+                        ))}
+                      </div>
 
-                      {/* WhatsApp CTA Overlay — carousel (links to exact active sub-product) */}
+                      {/* WhatsApp CTA Overlay — links to exact active sub-product */}
                       <a
-                        href={getWhatsAppLink(cat.name, cat.id === "keychains" ? cat.subproducts[keychainSlide] : undefined)}
+                        href={getWhatsAppLink(cat.name, cat.subproducts[getSlide(cat.id)])}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="absolute bottom-0 left-0 right-0 z-30 flex items-center justify-center gap-2 py-3 bg-[#25D366]/90 hover:bg-[#128C7E] backdrop-blur-sm text-white font-montserrat text-[10px] tracking-widest uppercase font-semibold transition-all duration-300"
@@ -639,15 +660,16 @@ export default function Services() {
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {cat.subproducts.map((sub, sIdx) => {
-                            const isActiveSlide = cat.id === "keychains" && sIdx === keychainSlide;
-                            if (cat.id === "keychains") {
+                            const hasCarousel = !!cat.images;
+                            const isActiveSlide = hasCarousel && sIdx === getSlide(cat.id);
+                            if (hasCarousel) {
                               return (
                                 <button
                                   key={sIdx}
                                   onClick={() => {
-                                    setKeychainSlide(sIdx);
-                                    setKeychainPaused(true);
-                                    setTimeout(() => setKeychainPaused(false), 5000);
+                                    setSlide(cat.id, sIdx);
+                                    setPaused(cat.id, true);
+                                    setTimeout(() => setPaused(cat.id, false), 5000);
                                   }}
                                   title={`View ${sub}`}
                                   className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border transition-all duration-500 cursor-pointer focus:outline-none ${
