@@ -286,9 +286,15 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "album-design",
     num: "21",
     name: "Album Design Making",
-    image: "https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&q=80&w=600",
+    image: "/album_wedding.jpg",
+    images: [
+      "/album_wedding.jpg",
+      "/album_forever.jpg",
+      "/album_baby.jpg",
+      "/album_class.jpg",
+    ],
     description: "Professionally crafted photo albums and memory books that preserve your most precious moments. Each layout is custom designed by our studio team with elegant typography, borders, and thematic collage arrangements.",
-    subproducts: ["Wedding Photo Album (20–80 pages)", "Birthday & Anniversary Memory Book", "Baby Milestone Album", "Graduation & Farewell Album", "Corporate Event Album"],
+    subproducts: ["Wedding Photo Album (20–80 pages)", "Birthday & Anniversary Memory Book", "Baby Milestone Album", "Graduation & Farewell Album"],
   },
   {
     id: "baby-name-board",
@@ -372,6 +378,8 @@ export default function Services() {
   const [nameBoardPaused, setNameBoardPaused] = useState(false);
   const [sunboardSlide, setSunboardSlide] = useState(0);
   const [sunboardPaused, setSunboardPaused] = useState(false);
+  const [albumSlide, setAlbumSlide] = useState(0);
+  const [albumPaused, setAlbumPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -535,6 +543,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [sunboardPaused]);
 
+  // Auto-advance album design making carousel every 3 seconds
+  useEffect(() => {
+    if (albumPaused) return;
+    const timer = setInterval(() => {
+      setAlbumSlide((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [albumPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -554,6 +571,7 @@ export default function Services() {
     : catId === "momento" ? momentoSlide
     : catId === "name-board" ? nameBoardSlide
     : catId === "sunboard" ? sunboardSlide
+    : catId === "album-design" ? albumSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -573,6 +591,7 @@ export default function Services() {
     else if (catId === "momento") setMomentoSlide(idx);
     else if (catId === "name-board") setNameBoardSlide(idx);
     else if (catId === "sunboard") setSunboardSlide(idx);
+    else if (catId === "album-design") setAlbumSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -593,6 +612,7 @@ export default function Services() {
     else if (catId === "momento") setMomentoPaused(val);
     else if (catId === "name-board") setNameBoardPaused(val);
     else if (catId === "sunboard") setSunboardPaused(val);
+    else if (catId === "album-design") setAlbumPaused(val);
     else setKeychainPaused(val);
   };
 
