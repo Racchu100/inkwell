@@ -210,7 +210,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-hang-frames",
     num: "15",
     name: "Monogram Wall Letter Frames",
-    image: "https://images.unsplash.com/photo-1544207557-274ac5b32818?auto=format&fit=crop&q=80&w=600",
+    image: "/monogram_letter.jpg",
+    images: [
+      "/monogram_letter.jpg",
+      "/monogram_bro.jpg",
+      "/monogram_couple.jpg",
+    ],
     description: "Magnificent monogram letters (e.g. A, M, S) or popular terms (BRO, LOVE, BROTHER) custom-filled with dozens of your favorite photos in an artistic photo-collage layout.",
     subproducts: ["Custom Monogram Letter Collage (12\" / 15\" / 18\")", "LOVE / BRO Words Photo Collage", "Pranaya Couple Intersecting Frames"],
   },
@@ -332,6 +337,8 @@ export default function Services() {
   const [caricaturePaused, setCaricaturePaused] = useState(false);
   const [ledSlide, setLedSlide] = useState(0);
   const [ledPaused, setLedPaused] = useState(false);
+  const [monogramSlide, setMonogramSlide] = useState(0);
+  const [monogramPaused, setMonogramPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -441,6 +448,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [ledPaused]);
 
+  // Auto-advance monogram wall frames carousel every 3 seconds
+  useEffect(() => {
+    if (monogramPaused) return;
+    const timer = setInterval(() => {
+      setMonogramSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [monogramPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -454,6 +470,7 @@ export default function Services() {
     : catId === "table-top-clock" ? tableClockSlide
     : catId === "caricature-table-top" ? caricatureSlide
     : catId === "led-table-top" ? ledSlide
+    : catId === "wall-hang-frames" ? monogramSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -467,6 +484,7 @@ export default function Services() {
     else if (catId === "table-top-clock") setTableClockSlide(idx);
     else if (catId === "caricature-table-top") setCaricatureSlide(idx);
     else if (catId === "led-table-top") setLedSlide(idx);
+    else if (catId === "wall-hang-frames") setMonogramSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -481,6 +499,7 @@ export default function Services() {
     else if (catId === "table-top-clock") setTableClockPaused(val);
     else if (catId === "caricature-table-top") setCaricaturePaused(val);
     else if (catId === "led-table-top") setLedPaused(val);
+    else if (catId === "wall-hang-frames") setMonogramPaused(val);
     else setKeychainPaused(val);
   };
 
