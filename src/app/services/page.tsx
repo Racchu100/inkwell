@@ -302,7 +302,7 @@ const catalogCategories: ProductCatalogItem[] = [
     name: "Baby Name Reveal Boards",
     image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=600",
     description: "Whimsical, pastel-themed personalised name boards crafted to celebrate a baby's arrival. Features the baby's name in hand-styled lettering with illustrated motifs — stars, animals, clouds, and more.",
-    subproducts: ["Wooden Carved Name Board (12\" / 18\")", "Acrylic Backlit Baby Name Plaque", "Felt Letter Board with Name & Date", "Gender Reveal Themed Board"],
+    subproducts: ["baby name reveal", "Gender Reveal Themed Board"],
   },
   {
     id: "poster-banner",
