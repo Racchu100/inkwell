@@ -198,9 +198,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "led-table-top",
     num: "14",
     name: "Acrylic LED Table Tops",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=600",
+    image: "/led_tabletop_spotify.jpg",
+    images: [
+      "/led_tabletop_spotify.jpg",
+      "/led_tabletop_neon.jpg",
+    ],
     description: "Gleaming acrylic panels slotted into polished solid-wood bases featuring integrated LED strips. Colors switch between warm white, cold blue, and vibrant magenta.",
-    subproducts: ["Custom Acrylic Song Plaque (Spotify code)", "Neon Love LED Stand", "Multi-Color Illuminated Photo Board"],
+    subproducts: ["Custom Acrylic Song Plaque (Spotify code)", "Neon Love LED Stand"],
   },
   {
     id: "wall-hang-frames",
@@ -326,6 +330,8 @@ export default function Services() {
   const [tableClockPaused, setTableClockPaused] = useState(false);
   const [caricatureSlide, setCaricatureSlide] = useState(0);
   const [caricaturePaused, setCaricaturePaused] = useState(false);
+  const [ledSlide, setLedSlide] = useState(0);
+  const [ledPaused, setLedPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -426,6 +432,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [caricaturePaused]);
 
+  // Auto-advance led table top carousel every 3 seconds
+  useEffect(() => {
+    if (ledPaused) return;
+    const timer = setInterval(() => {
+      setLedSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [ledPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -438,6 +453,7 @@ export default function Services() {
     : catId === "mousepad" ? mousepadSlide
     : catId === "table-top-clock" ? tableClockSlide
     : catId === "caricature-table-top" ? caricatureSlide
+    : catId === "led-table-top" ? ledSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -450,6 +466,7 @@ export default function Services() {
     else if (catId === "mousepad") setMousepadSlide(idx);
     else if (catId === "table-top-clock") setTableClockSlide(idx);
     else if (catId === "caricature-table-top") setCaricatureSlide(idx);
+    else if (catId === "led-table-top") setLedSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -463,6 +480,7 @@ export default function Services() {
     else if (catId === "mousepad") setMousepadPaused(val);
     else if (catId === "table-top-clock") setTableClockPaused(val);
     else if (catId === "caricature-table-top") setCaricaturePaused(val);
+    else if (catId === "led-table-top") setLedPaused(val);
     else setKeychainPaused(val);
   };
 
