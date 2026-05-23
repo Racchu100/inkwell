@@ -236,9 +236,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-hang-led-frames",
     num: "17",
     name: "Illuminated Wall LED Frames",
-    image: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600",
+    image: "/wall_led_tree.jpg",
+    images: [
+      "/wall_led_tree.jpg",
+      "/wall_led_frames.jpg",
+    ],
     description: "Elevated, warm floating wall art. Built using circular wood frames containing integrated back-lit LEDs that radiate a soft halo glow behind custom collage trees or heart cutouts.",
-    subproducts: ["Backlit LED Circle Photo Wall Art", "Illuminated Family Tree Silhouette Frame", "Glowing Modern Canvas Floating Wall Frame"],
+    subproducts: ["Illuminated Family Tree Silhouette Frame", "Glowing Modern Canvas Floating Wall Frame"],
   },
   {
     id: "momento",
@@ -346,6 +350,8 @@ export default function Services() {
   const [monogramPaused, setMonogramPaused] = useState(false);
   const [wallClockSlide, setWallClockSlide] = useState(0);
   const [wallClockPaused, setWallClockPaused] = useState(false);
+  const [wallLedSlide, setWallLedSlide] = useState(0);
+  const [wallLedPaused, setWallLedPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -473,6 +479,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [wallClockPaused]);
 
+  // Auto-advance illuminated wall led frames carousel every 3 seconds
+  useEffect(() => {
+    if (wallLedPaused) return;
+    const timer = setInterval(() => {
+      setWallLedSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [wallLedPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -488,6 +503,7 @@ export default function Services() {
     : catId === "led-table-top" ? ledSlide
     : catId === "wall-hang-frames" ? monogramSlide
     : catId === "wall-clock-frames" ? wallClockSlide
+    : catId === "wall-hang-led-frames" ? wallLedSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -503,6 +519,7 @@ export default function Services() {
     else if (catId === "led-table-top") setLedSlide(idx);
     else if (catId === "wall-hang-frames") setMonogramSlide(idx);
     else if (catId === "wall-clock-frames") setWallClockSlide(idx);
+    else if (catId === "wall-hang-led-frames") setWallLedSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -519,6 +536,7 @@ export default function Services() {
     else if (catId === "led-table-top") setLedPaused(val);
     else if (catId === "wall-hang-frames") setMonogramPaused(val);
     else if (catId === "wall-clock-frames") setWallClockPaused(val);
+    else if (catId === "wall-hang-led-frames") setWallLedPaused(val);
     else setKeychainPaused(val);
   };
 
