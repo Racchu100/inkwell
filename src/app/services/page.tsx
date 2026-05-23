@@ -261,7 +261,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "name-board",
     num: "19",
     name: "Golden Designer Name Boards",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600",
+    image: "/name_board_acrylic.jpg",
+    images: [
+      "/name_board_acrylic.jpg",
+      "/name_board_backlit.jpg",
+      "/name_board_wooden.jpg",
+    ],
     description: "The ultimate curb-appeal statement. Heavy outdoor-safe acrylic sheets adorned with raised golden 3D metallic lettering, designable logos, and weather-proof LED backlighting.",
     subproducts: ["Raised Golden Acrylic House Name Plate", "Contemporary Backlit LED Board for Offices", "Vintage Wooden Engraved Door Plaque"],
   },
@@ -359,6 +364,8 @@ export default function Services() {
   const [wallLedPaused, setWallLedPaused] = useState(false);
   const [momentoSlide, setMomentoSlide] = useState(0);
   const [momentoPaused, setMomentoPaused] = useState(false);
+  const [nameBoardSlide, setNameBoardSlide] = useState(0);
+  const [nameBoardPaused, setNameBoardPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -504,6 +511,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [momentoPaused]);
 
+  // Auto-advance golden designer name boards carousel every 3 seconds
+  useEffect(() => {
+    if (nameBoardPaused) return;
+    const timer = setInterval(() => {
+      setNameBoardSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [nameBoardPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -521,6 +537,7 @@ export default function Services() {
     : catId === "wall-clock-frames" ? wallClockSlide
     : catId === "wall-hang-led-frames" ? wallLedSlide
     : catId === "momento" ? momentoSlide
+    : catId === "name-board" ? nameBoardSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -538,6 +555,7 @@ export default function Services() {
     else if (catId === "wall-clock-frames") setWallClockSlide(idx);
     else if (catId === "wall-hang-led-frames") setWallLedSlide(idx);
     else if (catId === "momento") setMomentoSlide(idx);
+    else if (catId === "name-board") setNameBoardSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -556,6 +574,7 @@ export default function Services() {
     else if (catId === "wall-clock-frames") setWallClockPaused(val);
     else if (catId === "wall-hang-led-frames") setWallLedPaused(val);
     else if (catId === "momento") setMomentoPaused(val);
+    else if (catId === "name-board") setNameBoardPaused(val);
     else setKeychainPaused(val);
   };
 
