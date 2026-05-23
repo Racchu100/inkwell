@@ -223,9 +223,14 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-clock-frames",
     num: "16",
     name: "Bespoke Wall Clock Frames",
-    image: "https://images.unsplash.com/photo-1563861826100-9cb868fdcd1d?auto=format&fit=crop&q=80&w=600",
+    image: "/wall_clock_heart.jpg",
+    images: [
+      "/wall_clock_heart.jpg",
+      "/wall_clock_circular.jpg",
+      "/wall_clock_minimalist.jpg",
+    ],
     description: "Oversized, wall-mounted clock frameworks surrounded by smaller heart or square photo slots. Serves as a breathtaking centerpiece for living room walls.",
-    subproducts: ["Heart-Array Wall Clock Frame (10 designs)", "Circular Wooden Collage Wall Clock", "Minimalist Gold Metallic Pointer Clock"],
+    subproducts: ["Heart-Array Wall Clock Frame", "Circular Wooden Collage Wall Clock", "Minimalist Gold Metallic Pointer Clock"],
   },
   {
     id: "wall-hang-led-frames",
@@ -339,6 +344,8 @@ export default function Services() {
   const [ledPaused, setLedPaused] = useState(false);
   const [monogramSlide, setMonogramSlide] = useState(0);
   const [monogramPaused, setMonogramPaused] = useState(false);
+  const [wallClockSlide, setWallClockSlide] = useState(0);
+  const [wallClockPaused, setWallClockPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -457,6 +464,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [monogramPaused]);
 
+  // Auto-advance bespoke wall clock frames carousel every 3 seconds
+  useEffect(() => {
+    if (wallClockPaused) return;
+    const timer = setInterval(() => {
+      setWallClockSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [wallClockPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -471,6 +487,7 @@ export default function Services() {
     : catId === "caricature-table-top" ? caricatureSlide
     : catId === "led-table-top" ? ledSlide
     : catId === "wall-hang-frames" ? monogramSlide
+    : catId === "wall-clock-frames" ? wallClockSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -485,6 +502,7 @@ export default function Services() {
     else if (catId === "caricature-table-top") setCaricatureSlide(idx);
     else if (catId === "led-table-top") setLedSlide(idx);
     else if (catId === "wall-hang-frames") setMonogramSlide(idx);
+    else if (catId === "wall-clock-frames") setWallClockSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -500,6 +518,7 @@ export default function Services() {
     else if (catId === "caricature-table-top") setCaricaturePaused(val);
     else if (catId === "led-table-top") setLedPaused(val);
     else if (catId === "wall-hang-frames") setMonogramPaused(val);
+    else if (catId === "wall-clock-frames") setWallClockPaused(val);
     else setKeychainPaused(val);
   };
 
