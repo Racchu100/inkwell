@@ -274,9 +274,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "sunboard",
     num: "20",
     name: "Sunboard Prints",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600",
+    image: "/sunboard_welcome.jpg",
+    images: [
+      "/sunboard_welcome.jpg",
+      "/sunboard_a_frame.jpg",
+    ],
     description: "Lightweight yet rigid foam-core sunboard sheets with vibrant, weather-resistant full-color printing. Ideal for indoor displays, event backdrops, retail signage, and promotional standees.",
-    subproducts: ["Standard Sunboard Print (1ft–6ft)", "Custom Shaped Cut-Out Sunboard", "Double-Sided Sunboard Display", "Matte & Glossy Laminated Sunboard"],
+    subproducts: ["Standard Sunboard Print (1ft–6ft)", "Double-Sided Sunboard Display"],
   },
   {
     id: "album-design",
@@ -366,6 +370,8 @@ export default function Services() {
   const [momentoPaused, setMomentoPaused] = useState(false);
   const [nameBoardSlide, setNameBoardSlide] = useState(0);
   const [nameBoardPaused, setNameBoardPaused] = useState(false);
+  const [sunboardSlide, setSunboardSlide] = useState(0);
+  const [sunboardPaused, setSunboardPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -520,6 +526,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [nameBoardPaused]);
 
+  // Auto-advance sunboard prints carousel every 3 seconds
+  useEffect(() => {
+    if (sunboardPaused) return;
+    const timer = setInterval(() => {
+      setSunboardSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [sunboardPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -538,6 +553,7 @@ export default function Services() {
     : catId === "wall-hang-led-frames" ? wallLedSlide
     : catId === "momento" ? momentoSlide
     : catId === "name-board" ? nameBoardSlide
+    : catId === "sunboard" ? sunboardSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -556,6 +572,7 @@ export default function Services() {
     else if (catId === "wall-hang-led-frames") setWallLedSlide(idx);
     else if (catId === "momento") setMomentoSlide(idx);
     else if (catId === "name-board") setNameBoardSlide(idx);
+    else if (catId === "sunboard") setSunboardSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -575,6 +592,7 @@ export default function Services() {
     else if (catId === "wall-hang-led-frames") setWallLedPaused(val);
     else if (catId === "momento") setMomentoPaused(val);
     else if (catId === "name-board") setNameBoardPaused(val);
+    else if (catId === "sunboard") setSunboardPaused(val);
     else setKeychainPaused(val);
   };
 
