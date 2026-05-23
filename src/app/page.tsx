@@ -371,7 +371,7 @@ export default function Home() {
                 <div className="absolute -left-16 -bottom-16 w-36 h-36 bg-accent-gold/10 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="space-y-3 relative z-10">
-                  <span className="font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold block">
+                  <span className="inline-block font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold bg-white px-3 py-1.5 rounded shadow-sm">
                     Bespoke Service
                   </span>
                   <h2 className="font-playfair text-3xl md:text-5xl font-bold text-white tracking-wide leading-tight">
@@ -382,7 +382,7 @@ export default function Home() {
                 {/* Visual Process Points */}
                 <div className="space-y-5 py-2 relative z-10">
                   <div className="flex items-start space-x-3.5 group/item">
-                    <span className="w-6 h-6 mt-0.5 bg-white/10 text-accent-gold border border-white/20 rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold group-hover/item:border-accent-gold/45 transition-colors duration-300 shrink-0">
+                    <span className="w-6 h-6 mt-0.5 bg-white text-accent-gold border border-white rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold shadow-sm shrink-0">
                       01
                     </span>
                     <div className="space-y-0.5">
@@ -392,7 +392,7 @@ export default function Home() {
                   </div>
                   
                   <div className="flex items-start space-x-3.5 group/item">
-                    <span className="w-6 h-6 mt-0.5 bg-white/10 text-accent-gold border border-white/20 rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold group-hover/item:border-accent-gold/45 transition-colors duration-300 shrink-0">
+                    <span className="w-6 h-6 mt-0.5 bg-white text-accent-gold border border-white rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold shadow-sm shrink-0">
                       02
                     </span>
                     <div className="space-y-0.5">
@@ -402,7 +402,7 @@ export default function Home() {
                   </div>
 
                   <div className="flex items-start space-x-3.5 group/item">
-                    <span className="w-6 h-6 mt-0.5 bg-white/10 text-accent-gold border border-white/20 rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold group-hover/item:border-accent-gold/45 transition-colors duration-300 shrink-0">
+                    <span className="w-6 h-6 mt-0.5 bg-white text-accent-gold border border-white rounded-full flex items-center justify-center font-montserrat text-[9px] font-bold shadow-sm shrink-0">
                       03
                     </span>
                     <div className="space-y-0.5">
