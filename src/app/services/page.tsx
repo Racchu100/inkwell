@@ -248,7 +248,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "momento",
     num: "18",
     name: "Studio Momentos & Awards",
-    image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=600",
+    image: "/momento_crystal.jpg",
+    images: [
+      "/momento_crystal.jpg",
+      "/momento_trophies.jpg",
+      "/momento_brass.jpg",
+    ],
     description: "Premium awards, heavy trophies, and commemorative plaques. Perfectly suited for graduation milestones, athletic achievement, corporate appreciation, or retirement keepsakes.",
     subproducts: ["Crystal Heart Memorial Plaque", "High-Gloss Heavy Wooden Trophies", "Brushed Gold Acrylic Certificate Plate"],
   },
@@ -352,6 +357,8 @@ export default function Services() {
   const [wallClockPaused, setWallClockPaused] = useState(false);
   const [wallLedSlide, setWallLedSlide] = useState(0);
   const [wallLedPaused, setWallLedPaused] = useState(false);
+  const [momentoSlide, setMomentoSlide] = useState(0);
+  const [momentoPaused, setMomentoPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -488,6 +495,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [wallLedPaused]);
 
+  // Auto-advance studio momentos & awards carousel every 3 seconds
+  useEffect(() => {
+    if (momentoPaused) return;
+    const timer = setInterval(() => {
+      setMomentoSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [momentoPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -504,6 +520,7 @@ export default function Services() {
     : catId === "wall-hang-frames" ? monogramSlide
     : catId === "wall-clock-frames" ? wallClockSlide
     : catId === "wall-hang-led-frames" ? wallLedSlide
+    : catId === "momento" ? momentoSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -520,6 +537,7 @@ export default function Services() {
     else if (catId === "wall-hang-frames") setMonogramSlide(idx);
     else if (catId === "wall-clock-frames") setWallClockSlide(idx);
     else if (catId === "wall-hang-led-frames") setWallLedSlide(idx);
+    else if (catId === "momento") setMomentoSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -537,6 +555,7 @@ export default function Services() {
     else if (catId === "wall-hang-frames") setMonogramPaused(val);
     else if (catId === "wall-clock-frames") setWallClockPaused(val);
     else if (catId === "wall-hang-led-frames") setWallLedPaused(val);
+    else if (catId === "momento") setMomentoPaused(val);
     else setKeychainPaused(val);
   };
 
