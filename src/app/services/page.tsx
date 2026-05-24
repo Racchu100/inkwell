@@ -315,13 +315,12 @@ const catalogCategories: ProductCatalogItem[] = [
     image: "/poster_birthday.jpg",
     images: [
       "/poster_birthday.jpg",
-      "/poster_wedding.jpg",
       "/poster_flex.jpg",
       "/poster_standee.jpg",
       "/poster_backdrop.jpg",
     ],
     description: "High-impact print designs for every occasion — from birthday celebrations and weddings to product launches and corporate events. Crafted with premium print substrates and vibrant inks.",
-    subproducts: ["Birthday & Anniversary Posters", "Wedding Invitation Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners"],
+    subproducts: ["Birthday & Anniversary Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners"],
   },
   {
     id: "cards",
@@ -329,7 +328,7 @@ const catalogCategories: ProductCatalogItem[] = [
     name: "Cards (Identity, Business & Invitations)",
     image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600",
     description: "Premium quality cards printed on thick, luxury card stock with UV coating, spot gloss, or matte lamination. From professional identity and business cards to beautifully designed certificates and invitation cards.",
-    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Invitation Cards (Wedding / Birthday / Event)", "Thank You & Greeting Cards"],
+    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation", "Invitation Cards (Wedding / Birthday / Event)", "Thank You & Greeting Cards"],
   },
   {
     id: "photo-frames",
@@ -580,7 +579,7 @@ export default function Services() {
   useEffect(() => {
     if (posterPaused) return;
     const timer = setInterval(() => {
-      setPosterSlide((prev) => (prev + 1) % 5);
+      setPosterSlide((prev) => (prev + 1) % 4);
     }, 3000);
     return () => clearInterval(timer);
   }, [posterPaused]);
