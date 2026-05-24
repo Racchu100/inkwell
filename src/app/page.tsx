@@ -52,40 +52,28 @@ const carouselSlides = [
 
 const featuredCategories = [
   {
-    name: "Engraved Leather Wallets",
-    description: "Premium name-inscribed and photo-engraved leather keepsakes.",
-    image: "https://images.unsplash.com/photo-1590564313990-98a7b5b9b9fc?auto=format&fit=crop&q=80&w=600",
-    link: "/services#wallets",
+    name: "Album Design Making",
+    description: "Custom-designed high-end wedding albums and thematic memory books.",
+    image: "/album_wedding.webp",
+    link: "/services#album-design",
   },
   {
-    name: "Ceramic & Magic Mugs",
-    description: "Magic heat-revealing surfaces, gold/silver coatings, and heart-shaped handles.",
-    image: "https://images.unsplash.com/photo-1539223963957-4ab262b662b2?auto=format&fit=crop&q=80&w=600",
-    link: "/services#coffee-mugs",
+    name: "Baby Name Reveal Boards",
+    description: "Whimsical, hand-lettered pastel keepsake boards to celebrate baby arrivals.",
+    image: "/baby_name_reveal.webp",
+    link: "/services#baby-name-board",
   },
   {
-    name: "Rotating & Shadow Lamps",
-    description: "Elegant wooden rotating cylinders and personalized led shadow boxes.",
-    image: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&q=80&w=600",
-    link: "/services#rotating-lamp",
+    name: "Cards (Identity, Business & Invitations)",
+    description: "Thick luxury card stock invitations, corporate business cards, and greeting prints.",
+    image: "/card_wedding.webp",
+    link: "/services#cards",
   },
   {
-    name: "Table Top Masterpieces",
-    description: "Sub-category birthday, anniversary, and heart tree carvings.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600",
-    link: "/services#table-top",
-  },
-  {
-    name: "Glass & Rock Photo Frames",
-    description: "Sleek clock integrations on glass sheets and rustic textured stones.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600",
-    link: "/services#glass-frames",
-  },
-  {
-    name: "Custom Wall Hanging Clocks",
-    description: "Artistic letter cutouts and illuminated frames that decorate spaces.",
-    image: "https://images.unsplash.com/photo-1563861826100-9cb868fdcd1d?auto=format&fit=crop&q=80&w=600",
-    link: "/services#wall-clock-frames",
+    name: "Premium Photo Frames",
+    description: "Stunning direct-print acrylic glass and high-quality sparkle-finish frames.",
+    image: "/frame_acrylic.webp",
+    link: "/services#photo-frames",
   },
 ];
 
@@ -266,7 +254,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {featuredCategories.map((cat, idx) => (
                 <Link
                   key={idx}
