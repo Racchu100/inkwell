@@ -103,7 +103,7 @@ export default function Navbar() {
           isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-8 px-8">
+        <div className="flex flex-col items-center justify-start pt-16 h-full space-y-8 px-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
