@@ -9,7 +9,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const carouselSlides = [
   {
-    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=1600",
+    image: "/carousel_wallets.png",
     title: "The Art of Bespoke Gifting",
     subtitle: "Custom Engraved Leather Wallets & Passport Covers",
     description: "Crafted from fine premium leather, personalized with names and custom lettering. A timeless gift for your loved ones.",
@@ -17,7 +17,7 @@ const carouselSlides = [
     ctaLink: "/services#wallets",
   },
   {
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1600",
+    image: "/carousel_mugs.png",
     title: "Morning Rituals, Personalized",
     subtitle: "Premium Ceramic Mugs & Magic Heat Mirrors",
     description: "Discover white, gold, magic sequin, and heart-handle options. The perfect canvas for morning smiles and custom portraits.",
@@ -25,7 +25,7 @@ const carouselSlides = [
     ctaLink: "/services#coffee-mugs",
   },
   {
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=1600",
+    image: "/carousel_lamps.png",
     title: "Illuminated Memories",
     subtitle: "Hexagonal & Rotating Shadow Lamps",
     description: "Transform your favorite memories into glowing, rotating masterpieces. Multi-color warm lighting for cozy nights.",
@@ -33,7 +33,7 @@ const carouselSlides = [
     ctaLink: "/services#rotating-lamp",
   },
   {
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=1600",
+    image: "/carousel_frames.png",
     title: "Curated Visual Frames",
     subtitle: "Bespoke Glass & Textured Rock Frames",
     description: "Experience premium printing on natural stone and sleek clock-integrated glass layouts that elevate home aesthetics.",
@@ -41,7 +41,7 @@ const carouselSlides = [
     ctaLink: "/services#glass-frames",
   },
   {
-    image: "https://images.unsplash.com/photo-1544207557-274ac5b32818?auto=format&fit=crop&q=80&w=1600",
+    image: "/carousel_walldecor.png",
     title: "Gallery Walls Designed for You",
     subtitle: "Custom Monogram Letter Frames & LED Trees",
     description: "From custom letter frames (Bro, Love, Brother) to beautiful wall-hanging LED circles that capture the family story.",
