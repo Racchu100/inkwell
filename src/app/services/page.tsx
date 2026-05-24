@@ -300,7 +300,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "baby-name-board",
     num: "22",
     name: "Baby Name Reveal Boards",
-    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=600",
+    image: "/baby_name_reveal.jpg",
+    images: [
+      "/baby_name_reveal.jpg",
+      "/baby_gender_reveal.jpg",
+    ],
     description: "Whimsical, pastel-themed personalised name boards crafted to celebrate a baby's arrival. Features the baby's name in hand-styled lettering with illustrated motifs — stars, animals, clouds, and more.",
     subproducts: ["baby name reveal", "Gender Reveal Themed Board"],
   },
@@ -380,6 +384,8 @@ export default function Services() {
   const [sunboardPaused, setSunboardPaused] = useState(false);
   const [albumSlide, setAlbumSlide] = useState(0);
   const [albumPaused, setAlbumPaused] = useState(false);
+  const [babyBoardSlide, setBabyBoardSlide] = useState(0);
+  const [babyBoardPaused, setBabyBoardPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -552,6 +558,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [albumPaused]);
 
+  // Auto-advance baby name reveal boards carousel every 3 seconds
+  useEffect(() => {
+    if (babyBoardPaused) return;
+    const timer = setInterval(() => {
+      setBabyBoardSlide((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [babyBoardPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -572,6 +587,7 @@ export default function Services() {
     : catId === "name-board" ? nameBoardSlide
     : catId === "sunboard" ? sunboardSlide
     : catId === "album-design" ? albumSlide
+    : catId === "baby-name-board" ? babyBoardSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -592,6 +608,7 @@ export default function Services() {
     else if (catId === "name-board") setNameBoardSlide(idx);
     else if (catId === "sunboard") setSunboardSlide(idx);
     else if (catId === "album-design") setAlbumSlide(idx);
+    else if (catId === "baby-name-board") setBabyBoardSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -613,6 +630,7 @@ export default function Services() {
     else if (catId === "name-board") setNameBoardPaused(val);
     else if (catId === "sunboard") setSunboardPaused(val);
     else if (catId === "album-design") setAlbumPaused(val);
+    else if (catId === "baby-name-board") setBabyBoardPaused(val);
     else setKeychainPaused(val);
   };
 
