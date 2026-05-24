@@ -16,6 +16,7 @@ export default function Contact() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [submitStep, setSubmitStep] = useState<string>("");
 
   const categories = [
     "Keychains",
@@ -62,7 +63,7 @@ export default function Contact() {
     setImagePreview(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       setFormStatus("error");
@@ -70,19 +71,73 @@ export default function Contact() {
     }
 
     setFormStatus("submitting");
+    setSubmitStep("Processing details...");
 
-    // Simulate luxury API response / local storage logging
-    setTimeout(() => {
-      setFormStatus("success");
-      setFormData({
-        name: "",
-        phone: "",
-        interest: "Wallets",
-        message: "",
-      });
-      setSelectedImage(null);
-      setImagePreview(null);
-    }, 1500);
+    let uploadedImageUrl = "";
+
+    if (selectedImage) {
+      setSubmitStep("Uploading reference image...");
+      try {
+        const uploadData = new FormData();
+        uploadData.append("file", selectedImage);
+
+        // Upload reference photo to tmpfiles.org anonymous API
+        const response = await fetch("https://tmpfiles.org/api/v1/upload", {
+          method: "POST",
+          body: uploadData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          if (result.status === "success" && result.data && result.data.url) {
+            // Convert to direct download url (replace tmpfiles.org/ with tmpfiles.org/dl/)
+            uploadedImageUrl = result.data.url.replace("tmpfiles.org/", "tmpfiles.org/dl/");
+          }
+        }
+      } catch (err) {
+        console.error("Failed to upload image:", err);
+      }
+    }
+
+    setSubmitStep("Redirecting to WhatsApp...");
+
+    const studioNumber = "918197175112";
+    const hasPhoto = selectedImage
+      ? (uploadedImageUrl ? `Yes (View here: ${uploadedImageUrl})` : "Yes (will attach manually in chat)")
+      : "No";
+
+    const messageText = encodeURIComponent(
+      `*New WhatsApp Curation Inquiry*\n` +
+      `-----------------------------\n` +
+      `• *Client Name:* ${formData.name}\n` +
+      `• *Phone/WhatsApp:* ${formData.phone}\n` +
+      `• *Category Interest:* ${formData.interest}\n` +
+      `• *Reference Image:* ${hasPhoto}\n` +
+      `• *Styling Requirements:* ${formData.message || "None specified"}\n` +
+      `-----------------------------\n` +
+      `_Hello Ink Well! I have filled my curation details above. Let's discuss my custom order!_`
+    );
+
+    const waUrl = `https://wa.me/${studioNumber}?text=${messageText}`;
+
+    // Open direct WhatsApp chat
+    window.open(waUrl, "_blank");
+
+    setFormStatus("success");
+    setSubmitStep("");
+
+    // Reset form fields
+    setFormData({
+      name: "",
+      phone: "",
+      interest: "Wallets",
+      message: "",
+    });
+    setSelectedImage(null);
+    setImagePreview(null);
+
+    // Reset form status back to idle after a brief period
+    setTimeout(() => setFormStatus("idle"), 4000);
   };
 
   return (
@@ -116,10 +171,10 @@ export default function Contact() {
                   Bespoke Request Form
                 </span>
                 <h2 className="font-playfair text-xl sm:text-2xl font-bold text-text-primary tracking-wide">
-                  Submit Curation Request
+                  WhatsApp Curation Inquiry
                 </h2>
                 <p className="font-lato text-xs text-text-secondary leading-relaxed">
-                  Provide your detail specifications below. An art supervisor will reach back to you within 2 business hours with digital design mocks.
+                  Fill in the details below and upload any reference image. Submitting will automatically package your request and redirect you to WhatsApp to connect with our designer.
                 </p>
               </div>
 
@@ -265,8 +320,8 @@ export default function Contact() {
                 {/* Form Status Messages */}
                 {formStatus === "success" && (
                   <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-lato space-y-1">
-                    <p className="font-bold font-montserrat tracking-wide uppercase text-[9px]">Submission Successful</p>
-                    <p>Thank you! Your curation inquiry is registered. A design specialist will call or text your WhatsApp shortly.</p>
+                    <p className="font-bold font-montserrat tracking-wide uppercase text-[9px]">Redirecting to WhatsApp</p>
+                    <p>Your details have been compiled successfully. If you uploaded a reference image, it has been uploaded and linked. Please hit 'Send' in the opened WhatsApp window!</p>
                   </div>
                 )}
 
@@ -277,27 +332,18 @@ export default function Contact() {
                   </div>
                 )}
 
-                {/* Submit Buttons */}
-                <div className="pt-4 flex flex-col sm:flex-row gap-4">
+                {/* Submit Button */}
+                <div className="pt-4">
                   <button
                     type="submit"
                     disabled={formStatus === "submitting"}
-                    className="flex-grow sm:flex-grow-0 font-montserrat text-xs tracking-widest uppercase px-8 py-4 bg-accent-gold hover:bg-accent-gold-dark disabled:bg-gray-400 text-white font-semibold rounded-xl transition-all duration-300 shadow-md text-center cursor-pointer"
+                    className="w-full font-montserrat text-xs tracking-widest uppercase px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] disabled:bg-gray-400 text-white font-semibold rounded-xl transition-all duration-300 shadow-md flex items-center justify-center space-x-2.5 cursor-pointer border border-white/5"
                   >
-                    {formStatus === "submitting" ? "Registering..." : "Submit Inquiry"}
-                  </button>
-
-                  <a
-                    href="https://wa.me/918197175112"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-center font-montserrat text-xs tracking-widest uppercase px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl transition-all duration-300 shadow-md flex items-center justify-center space-x-2"
-                  >
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662z" />
                     </svg>
-                    <span>Instant WhatsApp Inquiry</span>
-                  </a>
+                    <span>{formStatus === "submitting" ? submitStep : "Send Inquiry to WhatsApp"}</span>
+                  </button>
                 </div>
               </form>
             </div>
