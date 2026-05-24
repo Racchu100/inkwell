@@ -258,7 +258,7 @@ export default function Home() {
         {/* Section 3: Featured Categories Grid */}
         <section className="bg-white pt-4 pb-8 md:pt-8 md:pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 md:mb-8 space-y-3 md:space-y-0">
+            <div className="flex flex-row items-end justify-between mb-5 md:mb-8 gap-4">
               <div className="space-y-1">
                 <span className="font-montserrat text-[8px] sm:text-[9px] tracking-[0.3em] text-accent-gold uppercase font-semibold">
                   Handpicked
@@ -269,9 +269,9 @@ export default function Home() {
               </div>
               <Link
                 href="/services"
-                className="font-montserrat text-[10px] sm:text-[11px] tracking-widest text-accent-gold-dark hover:text-accent-gold uppercase font-semibold flex items-center space-x-2 group transition-colors duration-300"
+                className="font-montserrat text-[10px] sm:text-[11px] tracking-widest text-accent-gold-dark hover:text-accent-gold uppercase font-semibold flex items-center space-x-1.5 group transition-colors duration-300 whitespace-nowrap pb-0.5"
               >
-                <span>Explore Full 19 Categories</span>
+                <span>Explore All</span>
                 <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
                   &rarr;
                 </span>
