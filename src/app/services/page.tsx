@@ -343,7 +343,14 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "photo-frames",
     num: "25",
     name: "Premium Photo Frames",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600",
+    image: "/frame_acrylic.jpg",
+    images: [
+      "/frame_acrylic.jpg",
+      "/frame_sparkle.jpg",
+      "/frame_collage.jpg",
+      "/frame_floating.jpg",
+      "/frame_heart.jpg",
+    ],
     description: "Showcase your cherished memories in luxurious, high-definition photo frames. Available in stunning acrylic glass and sparkle-finish materials for a premium display that truly stands out.",
     subproducts: ["Acrylic Glass Print Photo Frames", "Sparkle High Quality Print Photo Frames", "Multi-Photo Collage Frames", "Floating Frameless Glass Prints", "Heart & Custom Shape Photo Frames"],
   },
@@ -405,6 +412,8 @@ export default function Services() {
   const [posterPaused, setPosterPaused] = useState(false);
   const [cardSlide, setCardSlide] = useState(0);
   const [cardPaused, setCardPaused] = useState(false);
+  const [frameSlide, setFrameSlide] = useState(0);
+  const [framePaused, setFramePaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -604,6 +613,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [cardPaused]);
 
+  // Auto-advance photo frames carousel every 3 seconds
+  useEffect(() => {
+    if (framePaused) return;
+    const timer = setInterval(() => {
+      setFrameSlide((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [framePaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -627,6 +645,7 @@ export default function Services() {
     : catId === "baby-name-board" ? babyBoardSlide
     : catId === "poster-banner" ? posterSlide
     : catId === "cards" ? cardSlide
+    : catId === "photo-frames" ? frameSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -650,6 +669,7 @@ export default function Services() {
     else if (catId === "baby-name-board") setBabyBoardSlide(idx);
     else if (catId === "poster-banner") setPosterSlide(idx);
     else if (catId === "cards") setCardSlide(idx);
+    else if (catId === "photo-frames") setFrameSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -674,6 +694,7 @@ export default function Services() {
     else if (catId === "baby-name-board") setBabyBoardPaused(val);
     else if (catId === "poster-banner") setPosterPaused(val);
     else if (catId === "cards") setCardPaused(val);
+    else if (catId === "photo-frames") setFramePaused(val);
     else setKeychainPaused(val);
   };
 
