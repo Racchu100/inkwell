@@ -311,7 +311,7 @@ const catalogCategories: ProductCatalogItem[] = [
   {
     id: "poster-banner",
     num: "23",
-    name: "Posters, Banners & Invitation Cards",
+    name: "Posters & Banners",
     image: "/poster_birthday.jpg",
     images: [
       "/poster_birthday.jpg",
