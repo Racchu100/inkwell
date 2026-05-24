@@ -91,31 +91,31 @@ export default function Contact() {
 
       <main className="flex-grow pt-16 md:pt-[72px] bg-secondary-bg min-h-screen">
         {/* Header */}
-        <section className="bg-white py-6 md:py-16 lg:py-24 border-b border-border-linen/30">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 text-center md:text-left space-y-4">
-            <span className="font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold block">
+        <section className="bg-white py-1 lg:py-4 border-b border-border-linen/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center md:text-left space-y-1">
+            <span className="font-montserrat text-[8px] tracking-[0.4em] text-accent-gold uppercase font-bold block">
               Connect With Us
             </span>
-            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-text-primary tracking-wide">
+            <h1 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary tracking-wide leading-snug">
               Initiate a Custom Curation
             </h1>
-            <p className="font-lato text-sm md:text-base text-text-secondary max-w-2xl leading-relaxed">
+            <p className="font-lato text-[10px] sm:text-[11px] md:text-xs text-text-secondary/90 max-w-2xl leading-relaxed">
               Have a bespoke design in mind or want to explore volume corporate gifting? Drop us an inquiry or initiate a direct chat with our lead designer.
             </p>
           </div>
         </section>
 
         {/* Content Section */}
-        <section className="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 lg:py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Left Column: Contact Form (swapped to be at top below header/first on mobile) */}
-            <div className="lg:col-span-7 bg-white border border-border-linen/30 p-8 md:p-12 shadow-sm">
-              <div className="space-y-4 mb-8">
-                <span className="font-montserrat text-[9px] tracking-[0.3em] uppercase text-accent-gold font-bold block">
+            <div className="lg:col-span-7 bg-white border border-border-linen/30 p-5 md:p-8 shadow-sm">
+              <div className="space-y-3 mb-6">
+                <span className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-accent-gold font-bold block">
                   Bespoke Request Form
                 </span>
-                <h2 className="font-playfair text-3xl font-bold text-text-primary tracking-wide">
+                <h2 className="font-playfair text-xl sm:text-2xl font-bold text-text-primary tracking-wide">
                   Submit Curation Request
                 </h2>
                 <p className="font-lato text-xs text-text-secondary leading-relaxed">
@@ -306,7 +306,7 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-12">
               
               {/* Studio Details Card */}
-              <div className="bg-white border border-border-linen/30 p-5 md:p-8 shadow-sm space-y-6">
+              <div className="bg-white border border-border-linen/30 p-4 md:p-5 shadow-sm space-y-6">
                 <h2 className="font-playfair text-xl font-bold text-text-primary tracking-wide">
                   The Ink Well Studio
                 </h2>
