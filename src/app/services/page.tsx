@@ -333,9 +333,11 @@ const catalogCategories: ProductCatalogItem[] = [
       "/card_business.jpg",
       "/card_wedding.jpg",
       "/card_digital.jpg",
+      "/card_invitation.jpg",
+      "/card_greeting.jpg",
     ],
     description: "Premium quality cards printed on thick, luxury card stock with UV coating, spot gloss, or matte lamination. From professional identity and business cards to beautifully designed certificates and invitation cards.",
-    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation"],
+    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation", "Invitation Cards (Birthday / Event)", "Thank You & Greeting Cards"],
   },
   {
     id: "photo-frames",
@@ -597,7 +599,7 @@ export default function Services() {
   useEffect(() => {
     if (cardPaused) return;
     const timer = setInterval(() => {
-      setCardSlide((prev) => (prev + 1) % 5);
+      setCardSlide((prev) => (prev + 1) % 7);
     }, 3000);
     return () => clearInterval(timer);
   }, [cardPaused]);
