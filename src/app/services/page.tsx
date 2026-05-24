@@ -780,7 +780,7 @@ export default function Services() {
             <h1 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary tracking-wide leading-snug">
               Personalized Photo Gifting
             </h1>
-            <p className="font-lato text-[10px] sm:text-[11px] md:text-xs text-text-secondary/90 max-w-2xl leading-relaxed">
+            <p className="font-lato text-[11px] sm:text-xs md:text-sm text-text-secondary/90 max-w-2xl leading-relaxed">
               Explore all 26 signature product categories. Select a category below to jump directly to its options, and customize your piece via WhatsApp instant chat.
             </p>
           </div>

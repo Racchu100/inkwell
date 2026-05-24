@@ -82,6 +82,10 @@ body {
   font-family: var(--font-lato), sans-serif;
 }
 
+p {
+  font-size: 0.8em;
+}
+
 /* Custom helper utilities for editorial visual details */
 .editorial-grid-border {
   position: relative;

@@ -226,7 +226,7 @@ export default function Home() {
                 Preserving your timeless memories in premium, physical art forms.
               </h2>
               <div className="w-10 sm:w-14 h-[1.5px] bg-accent-gold mx-auto" />
-              <p className="font-cormorant text-[11px] sm:text-sm md:text-base text-text-secondary leading-relaxed italic">
+              <p className="font-cormorant text-[12px] sm:text-[14px] md:text-base text-text-secondary leading-relaxed italic">
                 At Ink Well Colour Crafts Studio, we believe that photographs shouldn&apos;t just live on screens. We translate your wedding portraits, travel snaps, and custom designs into elegant keepsakes that enhance your living spaces.
               </p>
             </div>
