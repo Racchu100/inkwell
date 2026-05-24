@@ -75,6 +75,30 @@ const featuredCategories = [
     image: "/frame_acrylic.webp",
     link: "/services#photo-frames",
   },
+  {
+    name: "Custom Coffee Mugs & Bottles",
+    description: "Standard ceramic, magic heat-revealing surfaces, gold/silver coatings, and steel bottles.",
+    image: "/mug_heart_handle.webp",
+    link: "/services#coffee-mugs",
+  },
+  {
+    name: "Magic Mirror Frames",
+    description: "Illuminated round and heart photo frames that double as decorative mirrors.",
+    image: "/mirror_round.webp",
+    link: "/services#magic-mirror",
+  },
+  {
+    name: "Personalized Cushions & Pillows",
+    description: "Soft custom photo cushions and interactive magic sequin throw pillows.",
+    image: "/pillow_heart.webp",
+    link: "/services#pillows",
+  },
+  {
+    name: "Caricature Table Tops",
+    description: "Quirky hand-drawn caricature desktop stands for couples and superheroes.",
+    image: "/caricature_bike.webp",
+    link: "/services#caricature-table-top",
+  },
 ];
 
 const usps = [
