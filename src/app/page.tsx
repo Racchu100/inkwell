@@ -311,6 +311,15 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+            
+            <div className="mt-8 md:mt-10 text-center">
+              <Link
+                href="/services"
+                className="inline-block font-montserrat text-[10px] sm:text-[11px] tracking-widest uppercase px-8 py-3.5 border border-accent-gold text-accent-gold-dark hover:bg-accent-gold hover:text-white transition-all duration-300 font-semibold rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transform cursor-pointer"
+              >
+                Explore Full 26 Categories
+              </Link>
+            </div>
           </div>
         </section>
 
