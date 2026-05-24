@@ -138,6 +138,10 @@ p {
   padding-block: calc(var(--spacing) * 10);
 }
 
+.py-6 {
+  padding-block: calc(var(--spacing) * 3);
+}
+
 .mb-20 {
   margin-bottom: calc(var(--spacing) * 10);
 }
