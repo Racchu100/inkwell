@@ -312,9 +312,16 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "poster-banner",
     num: "23",
     name: "Posters, Banners & Invitation Cards",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600",
+    image: "/poster_birthday.jpg",
+    images: [
+      "/poster_birthday.jpg",
+      "/poster_wedding.jpg",
+      "/poster_flex.jpg",
+      "/poster_standee.jpg",
+      "/poster_backdrop.jpg",
+    ],
     description: "High-impact print designs for every occasion — from birthday celebrations and weddings to product launches and corporate events. Crafted with premium print substrates and vibrant inks.",
-    subproducts: ["Birthday & Anniversary Posters", "Wedding Invitation Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners", "Custom Digital Invitation Cards"],
+    subproducts: ["Birthday & Anniversary Posters", "Wedding Invitation Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners"],
   },
   {
     id: "cards",
@@ -386,6 +393,8 @@ export default function Services() {
   const [albumPaused, setAlbumPaused] = useState(false);
   const [babyBoardSlide, setBabyBoardSlide] = useState(0);
   const [babyBoardPaused, setBabyBoardPaused] = useState(false);
+  const [posterSlide, setPosterSlide] = useState(0);
+  const [posterPaused, setPosterPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -567,6 +576,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [babyBoardPaused]);
 
+  // Auto-advance posters and banners carousel every 3 seconds
+  useEffect(() => {
+    if (posterPaused) return;
+    const timer = setInterval(() => {
+      setPosterSlide((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [posterPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -588,6 +606,7 @@ export default function Services() {
     : catId === "sunboard" ? sunboardSlide
     : catId === "album-design" ? albumSlide
     : catId === "baby-name-board" ? babyBoardSlide
+    : catId === "poster-banner" ? posterSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -609,6 +628,7 @@ export default function Services() {
     else if (catId === "sunboard") setSunboardSlide(idx);
     else if (catId === "album-design") setAlbumSlide(idx);
     else if (catId === "baby-name-board") setBabyBoardSlide(idx);
+    else if (catId === "poster-banner") setPosterSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -631,6 +651,7 @@ export default function Services() {
     else if (catId === "sunboard") setSunboardPaused(val);
     else if (catId === "album-design") setAlbumPaused(val);
     else if (catId === "baby-name-board") setBabyBoardPaused(val);
+    else if (catId === "poster-banner") setPosterPaused(val);
     else setKeychainPaused(val);
   };
 
