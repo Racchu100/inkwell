@@ -358,9 +358,15 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "stickers",
     num: "26",
     name: "Custom Stickers",
-    image: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&q=80&w=600",
+    image: "/sticker_custom.jpg",
+    images: [
+      "/sticker_custom.jpg",
+      "/sticker_logo.png",
+      "/sticker_transparent.jpg",
+      "/sticker_kids.jpg",
+    ],
     description: "Vibrant, waterproof custom stickers in any shape, size, or finish. Perfect for branding, packaging, event decorations, laptops, bottles, gifting, and personal expression.",
-    subproducts: ["Die-Cut Custom Shape Stickers", "Circle & Square Sticker Sheets", "Transparent / Clear Stickers", "Holographic Foil Stickers", "Bulk Branding & Packaging Stickers", "Kids & Fun Theme Sticker Packs"],
+    subproducts: ["Die-Cut Custom Shape Stickers", "Circle & Square Sticker Sheets", "Transparent / Clear Stickers", "Kids & Fun Theme Sticker Packs"],
   },
 ];
 
@@ -414,6 +420,8 @@ export default function Services() {
   const [cardPaused, setCardPaused] = useState(false);
   const [frameSlide, setFrameSlide] = useState(0);
   const [framePaused, setFramePaused] = useState(false);
+  const [stickerSlide, setStickerSlide] = useState(0);
+  const [stickerPaused, setStickerPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -622,6 +630,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [framePaused]);
 
+  // Auto-advance stickers carousel every 3 seconds
+  useEffect(() => {
+    if (stickerPaused) return;
+    const timer = setInterval(() => {
+      setStickerSlide((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [stickerPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -646,6 +663,7 @@ export default function Services() {
     : catId === "poster-banner" ? posterSlide
     : catId === "cards" ? cardSlide
     : catId === "photo-frames" ? frameSlide
+    : catId === "stickers" ? stickerSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -670,6 +688,7 @@ export default function Services() {
     else if (catId === "poster-banner") setPosterSlide(idx);
     else if (catId === "cards") setCardSlide(idx);
     else if (catId === "photo-frames") setFrameSlide(idx);
+    else if (catId === "stickers") setStickerSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -695,6 +714,7 @@ export default function Services() {
     else if (catId === "poster-banner") setPosterPaused(val);
     else if (catId === "cards") setCardPaused(val);
     else if (catId === "photo-frames") setFramePaused(val);
+    else if (catId === "stickers") setStickerPaused(val);
     else setKeychainPaused(val);
   };
 
