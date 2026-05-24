@@ -20,11 +20,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "keychains",
     num: "01",
     name: "Custom Keychains",
-    image: "/keychain_acrylic_photo.png",
+    image: "/keychain_acrylic_photo.webp",
     images: [
-      "/keychain_acrylic_photo.png",
-      "/keychain_heavy_metal.png",
-      "/keychain_name_cut_metallic.png",
+      "/keychain_acrylic_photo.webp",
+      "/keychain_heavy_metal.webp",
+      "/keychain_name_cut_metallic.webp",
     ],
     description: "Compact and stylish tokens of affection. Ideal for couples, new homeowners, and automotive keys. Available in high-gloss transparency or brushed heavy metals.",
     subproducts: ["Acrylic Photo Keychains", "Heavy Metal Engraved Keychains", "Name-Cut Metallic Keychains"],
@@ -33,11 +33,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wallets",
     num: "02",
     name: "Luxury Engraved Wallets",
-    image: "/wallet_engraved_photo.png",
+    image: "/wallet_engraved_photo.webp",
     images: [
-      "/wallet_engraved_photo.png",
-      "/wallet_womens_clutch.png",
-      "/wallet_passport_cover.png",
+      "/wallet_engraved_photo.webp",
+      "/wallet_womens_clutch.webp",
+      "/wallet_passport_cover.webp",
     ],
     description: "Handcrafted, curated vegan leather wallets and passport sleeves. Personalize with high-precision engraving of names, birthdays, or special vector illustrations.",
     subproducts: ["Engraved Photo Wallets", "Womens Clutches & Zip Wallets", "Passport Covers (Custom Engraved Names)"],
@@ -46,13 +46,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "coffee-mugs",
     num: "03",
     name: "Custom Coffee Mugs & Bottles",
-    image: "/mug_heart_handle.png",
+    image: "/mug_heart_handle.webp",
     images: [
-      "/mug_heart_handle.png",
-      "/mug_patch_print.png",
-      "/mug_magic_heat.png",
-      "/mug_luxury_gold.png",
-      "/mug_insulated_bottle.png",
+      "/mug_heart_handle.webp",
+      "/mug_patch_print.webp",
+      "/mug_magic_heat.webp",
+      "/mug_luxury_gold.webp",
+      "/mug_insulated_bottle.webp",
     ],
     description: "Elevate daily coffee rituals. Choose from standard ceramic, heat-activated color-changing magic mugs, or heavy insulated steel sports bottles.",
     subproducts: [
@@ -67,10 +67,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "magic-mirror",
     num: "03A",
     name: "Magic Mirror Frames",
-    image: "/mirror_round.jpg",
+    image: "/mirror_round.webp",
     images: [
-      "/mirror_round.jpg",
-      "/mirror_heart.jpg",
+      "/mirror_round.webp",
+      "/mirror_heart.webp",
     ],
     description: "Stunning illuminated photo frames that double as decorative mirrors. Featuring built-in warm LED rings around your favourite photo prints, creating a glowing halo effect perfect for bedrooms and gifting.",
     subproducts: ["Round Magic Mirror (Photo + LED Frame)", "Heart Magic Mirror (Photo + LED Frame)"],
@@ -79,11 +79,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "pillows",
     num: "04",
     name: "Personalized Cushions & Pillows",
-    image: "/pillow_heart.jpg",
+    image: "/pillow_heart.webp",
     images: [
-      "/pillow_heart.jpg",
-      "/pillow_square.jpg",
-      "/pillow_sequin.jpg",
+      "/pillow_heart.webp",
+      "/pillow_square.webp",
+      "/pillow_sequin.webp",
     ],
     description: "Luxuriously soft throw pillows that add character to sofas and bedrooms. Choose between elegant shapes or interactive color-swiping sequins.",
     subproducts: ["Heart Shaped Photo Pillow", "Square Velvet Throw Pillow", "Interactive Magic Sequin Pillow"],
@@ -92,12 +92,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "rotating-lamp",
     num: "05",
     name: "Rotating & Shadow Lamps",
-    image: "/lamp_big.jpg",
+    image: "/lamp_big.webp",
     images: [
-      "/lamp_big.jpg",
-      "/lamp_heart.jpg",
-      "/lamp_shadow.jpg",
-      "/lamp_hexagonal.jpg",
+      "/lamp_big.webp",
+      "/lamp_heart.webp",
+      "/lamp_shadow.webp",
+      "/lamp_hexagonal.webp",
     ],
     description: "A gorgeous interplay of light and shade. Features high-quality internal rotation motors and elegant laser-cut shadow templates that reflect beautiful message art on your bedroom walls.",
     subproducts: ["Big Rotating Lamp (Multi-Photo)", "Heart-Shaped Rotating Lamp", "Personalized Wooden Shadow Box", "Hexagonal LED Rotating Lamp"],
@@ -106,11 +106,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "glass-frames",
     num: "06",
     name: "Bespoke Glass Frames",
-    image: "/glass_triptych.jpg",
+    image: "/glass_triptych.webp",
     images: [
-      "/glass_triptych.jpg",
-      "/glass_clock.jpg",
-      "/glass_plaque.jpg",
+      "/glass_triptych.webp",
+      "/glass_clock.webp",
+      "/glass_plaque.webp",
     ],
     description: "Sleek, frameless glass sheets featuring high-definition direct sub-surface printing. Available with integrated premium silent clock movements and custom multi-photo layouts.",
     subproducts: ["3-Image Triptych Glass Frame", "Clock-Integrated Glass Photo Frame", "Floating Glass Plaque (With Stand)"],
@@ -119,11 +119,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "rock-frames",
     num: "07",
     name: "Rustic Rock Slate Frames",
-    image: "/slate_square.jpg",
+    image: "/slate_square.webp",
     images: [
-      "/slate_square.jpg",
-      "/slate_rectangle.jpg",
-      "/slate_heart.jpg",
+      "/slate_square.webp",
+      "/slate_rectangle.webp",
+      "/slate_heart.webp",
     ],
     description: "Hand-chiseled natural slate stones that boast organic, rough textures around the borders. High-gloss visual print layer prevents color fading and ensures an artisanal feel.",
     subproducts: ["Square Natural Stone Slate (6x6\")", "Rectangular Rock Slate Frame (8x6\")", "Heart-Shaped Stone Photo Plaque"],
@@ -132,7 +132,7 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "bluetooth-speaker",
     num: "08",
     name: "Bluetooth Speakers",
-    image: "/bluetooth_speaker.jpg",
+    image: "/bluetooth_speaker.webp",
     description: "Wireless speakers featuring high-fidelity sound, glowing warm LED illumination, and a circular custom printed photo layout on the speaker grill or top plate.",
     subproducts: ["Customized/Personalized Bluetooth Speaker with Photo"],
   },
@@ -140,7 +140,7 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "alarm-clock",
     num: "09",
     name: "Cubical Alarm Clocks",
-    image: "/cube_clock.jpg",
+    image: "/cube_clock.webp",
     description: "Sleek, glowing cubical alarm clocks with temperature sensors. Personalize up to 4 sides with high-quality translucent prints that glow elegantly when the backlights activate.",
     subproducts: ["Multi-Color LED Glowing Cube Clock"],
   },
@@ -148,10 +148,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "mousepad",
     num: "10",
     name: "Custom Mousepads",
-    image: "/mousepad_collage.jpg",
+    image: "/mousepad_collage.webp",
     images: [
-      "/mousepad_collage.jpg",
-      "/mousepad_anime.jpg",
+      "/mousepad_collage.webp",
+      "/mousepad_anime.webp",
     ],
     description: "High-grade neoprene pads with non-slip rubber backs and ultra-smooth tracking fabrics. Customize with inspirational office typography, family grids, or calendar overlays.",
     subproducts: ["Standard Custom Desk Pad (9x7\")", "Large Panoramic Gaming Pad (30x15\")"],
@@ -174,10 +174,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "table-top-clock",
     num: "12",
     name: "Table Top Art Clocks",
-    image: "/table_top_clock.jpg",
+    image: "/table_top_clock.webp",
     images: [
-      "/table_top_clock.jpg",
-      "/table_top_multi.jpg",
+      "/table_top_clock.webp",
+      "/table_top_multi.webp",
     ],
     description: "Functional desktop art pieces with premium brass clock needles. Beautifully styled backdrops printed on heavy acrylics or composite wood sheets.",
     subproducts: ["Minimalist Acrylic Desk Clock", "Contemporary Multi-Photo Table Clock (4 Designs)"],
@@ -186,10 +186,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "caricature-table-top",
     num: "13",
     name: "Caricature Table Tops",
-    image: "/caricature_bike.jpg",
+    image: "/caricature_bike.webp",
     images: [
-      "/caricature_bike.jpg",
-      "/caricature_superhero.jpg",
+      "/caricature_bike.webp",
+      "/caricature_superhero.webp",
     ],
     description: "A fun, animated perspective! Our professional graphic designers map your faces onto artistic, high-resolution comic bodies. Perfect for quirky couples, professional milestones, and friend birthdays.",
     subproducts: ["Quirky Couple Caricature Stand (8\" / 10\")", "Super Hero Caricature Stand"],
@@ -198,10 +198,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "led-table-top",
     num: "14",
     name: "Acrylic LED Table Tops",
-    image: "/led_tabletop_spotify.jpg",
+    image: "/led_tabletop_spotify.webp",
     images: [
-      "/led_tabletop_spotify.jpg",
-      "/led_tabletop_neon.jpg",
+      "/led_tabletop_spotify.webp",
+      "/led_tabletop_neon.webp",
     ],
     description: "Gleaming acrylic panels slotted into polished solid-wood bases featuring integrated LED strips. Colors switch between warm white, cold blue, and vibrant magenta.",
     subproducts: ["Custom Acrylic Song Plaque (Spotify code)", "Neon Love LED Stand"],
@@ -210,11 +210,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-hang-frames",
     num: "15",
     name: "Monogram Wall Letter Frames",
-    image: "/monogram_letter.jpg",
+    image: "/monogram_letter.webp",
     images: [
-      "/monogram_letter.jpg",
-      "/monogram_bro.jpg",
-      "/monogram_couple.jpg",
+      "/monogram_letter.webp",
+      "/monogram_bro.webp",
+      "/monogram_couple.webp",
     ],
     description: "Magnificent monogram letters (e.g. A, M, S) or popular terms (BRO, LOVE, BROTHER) custom-filled with dozens of your favorite photos in an artistic photo-collage layout.",
     subproducts: ["Custom Monogram Letter Collage (12\" / 15\" / 18\")", "LOVE / BRO Words Photo Collage", "Pranaya Couple Intersecting Frames"],
@@ -223,11 +223,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-clock-frames",
     num: "16",
     name: "Bespoke Wall Clock Frames",
-    image: "/wall_clock_heart.jpg",
+    image: "/wall_clock_heart.webp",
     images: [
-      "/wall_clock_heart.jpg",
-      "/wall_clock_circular.jpg",
-      "/wall_clock_minimalist.jpg",
+      "/wall_clock_heart.webp",
+      "/wall_clock_circular.webp",
+      "/wall_clock_minimalist.webp",
     ],
     description: "Oversized, wall-mounted clock frameworks surrounded by smaller heart or square photo slots. Serves as a breathtaking centerpiece for living room walls.",
     subproducts: ["Heart-Array Wall Clock Frame", "Circular Wooden Collage Wall Clock", "Minimalist Gold Metallic Pointer Clock"],
@@ -236,10 +236,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "wall-hang-led-frames",
     num: "17",
     name: "Illuminated Wall LED Frames",
-    image: "/wall_led_tree.jpg",
+    image: "/wall_led_tree.webp",
     images: [
-      "/wall_led_tree.jpg",
-      "/wall_led_frames.jpg",
+      "/wall_led_tree.webp",
+      "/wall_led_frames.webp",
     ],
     description: "Elevated, warm floating wall art. Built using circular wood frames containing integrated back-lit LEDs that radiate a soft halo glow behind custom collage trees or heart cutouts.",
     subproducts: ["Illuminated Family Tree Silhouette Frame", "Glowing Modern Canvas Floating Wall Frame"],
@@ -248,11 +248,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "momento",
     num: "18",
     name: "Studio Momentos & Awards",
-    image: "/momento_crystal.jpg",
+    image: "/momento_crystal.webp",
     images: [
-      "/momento_crystal.jpg",
-      "/momento_trophies.jpg",
-      "/momento_brass.jpg",
+      "/momento_crystal.webp",
+      "/momento_trophies.webp",
+      "/momento_brass.webp",
     ],
     description: "Premium awards, heavy trophies, and commemorative plaques. Perfectly suited for graduation milestones, athletic achievement, corporate appreciation, or retirement keepsakes.",
     subproducts: ["Crystal Heart Memorial Plaque", "High-Gloss Heavy Wooden Trophies", "Brushed Gold Acrylic Certificate Plate"],
@@ -261,11 +261,11 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "name-board",
     num: "19",
     name: "Golden Designer Name Boards",
-    image: "/name_board_acrylic.jpg",
+    image: "/name_board_acrylic.webp",
     images: [
-      "/name_board_acrylic.jpg",
-      "/name_board_backlit.jpg",
-      "/name_board_wooden.jpg",
+      "/name_board_acrylic.webp",
+      "/name_board_backlit.webp",
+      "/name_board_wooden.webp",
     ],
     description: "The ultimate curb-appeal statement. Heavy outdoor-safe acrylic sheets adorned with raised golden 3D metallic lettering, designable logos, and weather-proof LED backlighting.",
     subproducts: ["Raised Golden Acrylic House Name Plate", "Contemporary Backlit LED Board for Offices", "Vintage Wooden Engraved Door Plaque"],
@@ -274,10 +274,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "sunboard",
     num: "20",
     name: "Sunboard Prints",
-    image: "/sunboard_welcome.jpg",
+    image: "/sunboard_welcome.webp",
     images: [
-      "/sunboard_welcome.jpg",
-      "/sunboard_a_frame.jpg",
+      "/sunboard_welcome.webp",
+      "/sunboard_a_frame.webp",
     ],
     description: "Lightweight yet rigid foam-core sunboard sheets with vibrant, weather-resistant full-color printing. Ideal for indoor displays, event backdrops, retail signage, and promotional standees.",
     subproducts: ["Standard Sunboard Print (1ft–6ft)", "Double-Sided Sunboard Display"],
@@ -286,12 +286,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "album-design",
     num: "21",
     name: "Album Design Making",
-    image: "/album_wedding.jpg",
+    image: "/album_wedding.webp",
     images: [
-      "/album_wedding.jpg",
-      "/album_forever.jpg",
-      "/album_baby.jpg",
-      "/album_class.jpg",
+      "/album_wedding.webp",
+      "/album_forever.webp",
+      "/album_baby.webp",
+      "/album_class.webp",
     ],
     description: "Professionally crafted photo albums and memory books that preserve your most precious moments. Each layout is custom designed by our studio team with elegant typography, borders, and thematic collage arrangements.",
     subproducts: ["Wedding Photo Album (20–80 pages)", "Birthday & Anniversary Memory Book", "Baby Milestone Album", "Graduation & Farewell Album"],
@@ -300,10 +300,10 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "baby-name-board",
     num: "22",
     name: "Baby Name Reveal Boards",
-    image: "/baby_name_reveal.jpg",
+    image: "/baby_name_reveal.webp",
     images: [
-      "/baby_name_reveal.jpg",
-      "/baby_gender_reveal.jpg",
+      "/baby_name_reveal.webp",
+      "/baby_gender_reveal.webp",
     ],
     description: "Whimsical, pastel-themed personalised name boards crafted to celebrate a baby's arrival. Features the baby's name in hand-styled lettering with illustrated motifs — stars, animals, clouds, and more.",
     subproducts: ["baby name reveal", "Gender Reveal Themed Board"],
@@ -312,12 +312,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "poster-banner",
     num: "23",
     name: "Posters & Banners",
-    image: "/poster_birthday.jpg",
+    image: "/poster_birthday.webp",
     images: [
-      "/poster_birthday.jpg",
-      "/poster_flex.jpg",
-      "/poster_standee.jpg",
-      "/poster_backdrop.jpg",
+      "/poster_birthday.webp",
+      "/poster_flex.webp",
+      "/poster_standee.webp",
+      "/poster_backdrop.webp",
     ],
     description: "High-impact print designs for every occasion — from birthday celebrations and weddings to product launches and corporate events. Crafted with premium print substrates and vibrant inks.",
     subproducts: ["Birthday & Anniversary Posters", "Flex Banners (2ft–20ft)", "Roll-Up Standee Banners", "Event Backdrop Banners"],
@@ -326,15 +326,15 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "cards",
     num: "24",
     name: "Cards (Identity, Business & Invitations)",
-    image: "/card_id.jpg",
+    image: "/card_id.webp",
     images: [
-      "/card_id.jpg",
-      "/card_cert.jpg",
-      "/card_business.jpg",
-      "/card_wedding.jpg",
-      "/card_digital.jpg",
-      "/card_invitation.jpg",
-      "/card_greeting.jpg",
+      "/card_id.webp",
+      "/card_cert.webp",
+      "/card_business.webp",
+      "/card_wedding.webp",
+      "/card_digital.webp",
+      "/card_invitation.webp",
+      "/card_greeting.webp",
     ],
     description: "Premium quality cards printed on thick, luxury card stock with UV coating, spot gloss, or matte lamination. From professional identity and business cards to beautifully designed certificates and invitation cards.",
     subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation", "Invitation Cards (Birthday / Event)", "Thank You & Greeting Cards"],
@@ -343,13 +343,13 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "photo-frames",
     num: "25",
     name: "Premium Photo Frames",
-    image: "/frame_acrylic.jpg",
+    image: "/frame_acrylic.webp",
     images: [
-      "/frame_acrylic.jpg",
-      "/frame_sparkle.jpg",
-      "/frame_collage.jpg",
-      "/frame_floating.jpg",
-      "/frame_heart.jpg",
+      "/frame_acrylic.webp",
+      "/frame_sparkle.webp",
+      "/frame_collage.webp",
+      "/frame_floating.webp",
+      "/frame_heart.webp",
     ],
     description: "Showcase your cherished memories in luxurious, high-definition photo frames. Available in stunning acrylic glass and sparkle-finish materials for a premium display that truly stands out.",
     subproducts: ["Acrylic Glass Print Photo Frames", "Sparkle High Quality Print Photo Frames", "Multi-Photo Collage Frames", "Floating Frameless Glass Prints", "Heart & Custom Shape Photo Frames"],
@@ -358,12 +358,12 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "stickers",
     num: "26",
     name: "Custom Stickers",
-    image: "/sticker_custom.jpg",
+    image: "/sticker_custom.webp",
     images: [
-      "/sticker_custom.jpg",
-      "/sticker_logo.png",
-      "/sticker_transparent.jpg",
-      "/sticker_kids.jpg",
+      "/sticker_custom.webp",
+      "/sticker_logo.webp",
+      "/sticker_transparent.webp",
+      "/sticker_kids.webp",
     ],
     description: "Vibrant, waterproof custom stickers in any shape, size, or finish. Perfect for branding, packaging, event decorations, laptops, bottles, gifting, and personal expression.",
     subproducts: ["Die-Cut Custom Shape Stickers", "Circle & Square Sticker Sheets", "Transparent / Clear Stickers", "Kids & Fun Theme Sticker Packs"],
@@ -422,6 +422,7 @@ export default function Services() {
   const [framePaused, setFramePaused] = useState(false);
   const [stickerSlide, setStickerSlide] = useState(0);
   const [stickerPaused, setStickerPaused] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -976,8 +977,9 @@ export default function Services() {
                           }`}
                         >
                           <div
-                            className="absolute inset-0 bg-cover bg-center"
+                            className="absolute inset-0 bg-cover bg-center cursor-pointer hover:scale-105 transition-transform duration-700"
                             style={{ backgroundImage: `url('${img}')` }}
+                            onClick={() => setLightboxImage(img)}
                           />
                         </div>
                       ))}
@@ -1045,8 +1047,9 @@ export default function Services() {
                     /* === Static image for all other categories === */
                     <div className="w-full lg:w-80 shrink-0 h-44 sm:h-56 md:h-64 relative overflow-hidden bg-secondary-bg rounded-xl group">
                       <div
-                        className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+                        className="absolute inset-0 bg-cover bg-center cursor-pointer group-hover:scale-105 transition-transform duration-700"
                         style={{ backgroundImage: `url('${cat.image}')` }}
+                        onClick={() => setLightboxImage(cat.image)}
                       />
                       <div className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm border border-border-linen flex items-center justify-center z-10">
                         <span className="font-montserrat text-[10px] text-accent-gold-dark font-bold">
@@ -1154,6 +1157,31 @@ export default function Services() {
 
       <Footer />
       <WhatsAppButton />
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div className="relative max-w-5xl w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white hover:text-accent-gold z-50 bg-black/50 p-2 rounded-full transition-colors"
+              aria-label="Close"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src={lightboxImage}
+              alt="Expanded view"
+              className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
