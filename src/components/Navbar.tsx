@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Elegant Logo Image */}
         <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]">
           <img
-            src="/logo.png"
+            src="/logo-removebg-preview.webp"
             alt="Ink Well Colour Crafts Studio Logo"
             className="h-10 md:h-12 w-auto object-contain"
           />

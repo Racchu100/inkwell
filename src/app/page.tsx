@@ -205,28 +205,28 @@ export default function Home() {
         </section>
 
         {/* Section 2: Intro/Tagline Section */}
-        <section className="bg-secondary-bg pt-4 pb-6 md:pt-8 md:pb-14 border-b border-border-linen/30 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-2 sm:px-8 relative flex items-center justify-center min-h-[300px] sm:min-h-[280px]">
+        <section className="bg-secondary-bg pt-3 pb-4 md:pt-6 md:pb-8 border-b border-border-linen/30 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative flex items-center justify-center min-h-[240px] sm:min-h-[220px]">
             
             {/* Absolute Left Image: Heart Shape Photo Frame */}
             <div className="absolute left-1 sm:left-4 lg:left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-28 sm:h-28 lg:w-44 lg:h-44 opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-500 ease-out z-20 select-none">
               <img
-                src="/heart_photo_frame.png"
+                src="/heart_photo_frame-removebg-preview.webp"
                 alt="Heart Shape Photo Frame"
                 className="w-full h-full object-contain drop-shadow-[0_8px_16px_rgba(7,44,79,0.08)] lg:drop-shadow-[0_12px_24px_rgba(7,44,79,0.12)]"
               />
             </div>
 
             {/* Central Content */}
-            <div className="max-w-xs sm:max-w-md md:max-w-xl lg:max-w-3xl mx-auto text-center space-y-4 sm:space-y-5 py-4 sm:py-6 px-16 sm:px-24 md:px-0">
-              <span className="font-montserrat text-[9px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.5em] text-accent-gold uppercase block">
+            <div className="max-w-xs sm:max-w-md md:max-w-xl lg:max-w-3xl mx-auto text-center space-y-3 sm:space-y-4 py-2 sm:py-4 px-16 sm:px-24 md:px-0">
+              <span className="font-montserrat text-[8px] sm:text-[9px] tracking-[0.4em] sm:tracking-[0.5em] text-accent-gold uppercase block">
                 Curated Masterpieces
               </span>
-              <h2 className="font-playfair text-base sm:text-2xl md:text-4xl font-bold text-text-primary tracking-wide leading-snug">
+              <h2 className="font-playfair text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary tracking-wide leading-snug">
                 Preserving your timeless memories in premium, physical art forms.
               </h2>
-              <div className="w-12 sm:w-16 h-[1.5px] bg-accent-gold mx-auto" />
-              <p className="font-cormorant text-xs sm:text-lg md:text-xl text-text-secondary leading-relaxed italic">
+              <div className="w-10 sm:w-14 h-[1.5px] bg-accent-gold mx-auto" />
+              <p className="font-cormorant text-[11px] sm:text-sm md:text-base text-text-secondary leading-relaxed italic">
                 At Ink Well Colour Crafts Studio, we believe that photographs shouldn&apos;t just live on screens. We translate your wedding portraits, travel snaps, and custom designs into elegant keepsakes that enhance your living spaces.
               </p>
             </div>
@@ -234,7 +234,7 @@ export default function Home() {
             {/* Absolute Right Image: Caricature Table Top */}
             <div className="absolute right-1 sm:right-4 lg:right-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-28 sm:h-28 lg:w-44 lg:h-44 opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-500 ease-out z-20 select-none">
               <img
-                src="/caricature_table_top.png"
+                src="/caricature_table_top-removebg-preview.webp"
                 alt="Custom Caricature Table Top"
                 className="w-full h-full object-contain drop-shadow-[0_8px_16px_rgba(7,44,79,0.08)] lg:drop-shadow-[0_12px_24px_rgba(7,44,79,0.12)]"
               />
@@ -244,20 +244,20 @@ export default function Home() {
         </section>
 
         {/* Section 3: Featured Categories Grid */}
-        <section className="bg-white pt-6 pb-12 md:pt-14 md:pb-32">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 space-y-4 md:space-y-0">
-              <div className="space-y-2">
-                <span className="font-montserrat text-[10px] tracking-[0.3em] text-accent-gold uppercase font-semibold">
+        <section className="bg-white pt-4 pb-8 md:pt-8 md:pb-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 md:mb-8 space-y-3 md:space-y-0">
+              <div className="space-y-1">
+                <span className="font-montserrat text-[8px] sm:text-[9px] tracking-[0.3em] text-accent-gold uppercase font-semibold">
                   Handpicked
                 </span>
-                <h3 className="font-playfair text-3xl md:text-5xl font-bold text-text-primary">
+                <h3 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary">
                   Featured Gift Curations
                 </h3>
               </div>
               <Link
                 href="/services"
-                className="font-montserrat text-xs tracking-widest text-accent-gold-dark hover:text-accent-gold uppercase font-semibold flex items-center space-x-2 group transition-colors duration-300"
+                className="font-montserrat text-[10px] sm:text-[11px] tracking-widest text-accent-gold-dark hover:text-accent-gold uppercase font-semibold flex items-center space-x-2 group transition-colors duration-300"
               >
                 <span>Explore Full 19 Categories</span>
                 <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
@@ -266,7 +266,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 lg:gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {featuredCategories.map((cat, idx) => (
                 <Link
                   key={idx}
@@ -280,16 +280,16 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                   </div>
-                  <div className="p-4 md:p-8 space-y-2 md:space-y-3 flex-grow flex flex-col justify-between">
-                    <div className="space-y-1.5 md:space-y-2">
-                      <h4 className="font-cormorant font-bold text-lg md:text-2xl text-text-primary tracking-wide group-hover:text-accent-gold transition-colors duration-300">
+                  <div className="p-3 md:p-5 space-y-1.5 md:space-y-2 flex-grow flex flex-col justify-between">
+                    <div className="space-y-1 md:space-y-1.5">
+                      <h4 className="font-cormorant font-bold text-base md:text-lg text-text-primary tracking-wide group-hover:text-accent-gold transition-colors duration-300">
                         {cat.name}
                       </h4>
-                      <p className="font-lato text-[11px] md:text-xs text-text-secondary leading-relaxed line-clamp-2 sm:line-clamp-none">
+                      <p className="font-lato text-[10px] md:text-[11px] text-text-secondary leading-relaxed line-clamp-2 sm:line-clamp-none">
                         {cat.description}
                       </p>
                     </div>
-                    <span className="font-montserrat text-[9px] md:text-[10px] tracking-widest uppercase text-accent-gold font-semibold pt-2 md:pt-4 flex items-center space-x-1">
+                    <span className="font-montserrat text-[8px] md:text-[9px] tracking-widest uppercase text-accent-gold font-semibold pt-1 md:pt-2 flex items-center space-x-1">
                       <span>View details</span>
                       <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
                         &rarr;
@@ -303,21 +303,21 @@ export default function Home() {
         </section>
 
         {/* Section 4: Why Choose Us (USPs) */}
-        <section className="bg-secondary-bg py-12 md:py-32 border-y border-border-linen/40">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <div className="max-w-3xl mx-auto space-y-4 mb-10 md:mb-20">
-              <span className="font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold">
+        <section className="bg-secondary-bg py-8 md:py-16 border-y border-border-linen/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+            <div className="max-w-3xl mx-auto space-y-3 mb-6 md:mb-10">
+              <span className="font-montserrat text-[8px] sm:text-[9px] tracking-[0.4em] text-accent-gold uppercase font-bold">
                 The Ink Well Distinction
               </span>
-              <h3 className="font-playfair text-3xl md:text-5xl font-bold text-text-primary tracking-wide">
+              <h3 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary tracking-wide">
                 Why Discerning Clients Choose Us
               </h3>
-              <p className="font-lato text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
+              <p className="font-lato text-xs text-text-secondary max-w-xl mx-auto leading-relaxed">
                 We combine meticulous studio photography techniques with high-end print substrates to ensure an editorial grade artifact.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 lg:gap-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {usps.map((usp, idx) => (
                 <div
                   key={idx}
@@ -330,11 +330,11 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                   </div>
-                  <div className="p-4 md:p-6 lg:p-7 flex flex-col text-center space-y-2 md:space-y-3 flex-grow justify-between">
-                    <h4 className="font-cormorant font-bold text-base md:text-lg lg:text-xl text-white tracking-wide group-hover:text-accent-gold transition-colors duration-300">
+                  <div className="p-3 md:p-4 lg:p-5 flex flex-col text-center space-y-1.5 md:space-y-2 flex-grow justify-between">
+                    <h4 className="font-cormorant font-bold text-sm md:text-base lg:text-lg text-white tracking-wide group-hover:text-accent-gold transition-colors duration-300">
                       {usp.title}
                     </h4>
-                    <p className="font-lato text-[11px] md:text-xs text-white/75 leading-relaxed flex-grow">
+                    <p className="font-lato text-[10px] md:text-[11px] text-white/75 leading-relaxed flex-grow">
                       {usp.description}
                     </p>
                   </div>
@@ -345,14 +345,14 @@ export default function Home() {
         </section>
 
         {/* Section 5: Premium Minimalist Split Section */}
-        <section className="bg-secondary-bg/35 border-t border-border-linen/20 py-16 md:py-24 lg:py-28 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <section className="bg-secondary-bg/35 border-t border-border-linen/20 py-8 md:py-12 lg:py-16 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
               
               {/* Left Column: Visual Representation (Luxury wrap box showcasing upload & popping products) */}
               <div className="lg:col-span-6 relative group overflow-hidden rounded-2xl border border-border-linen/35 shadow-md aspect-[4/3] md:aspect-[16/10]">
                 <div 
-                  className="absolute inset-0 bg-[url('/curation_mockup.png')] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  className="absolute inset-0 bg-[url('/curation_mockup.webp')] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-text-primary/10 to-transparent opacity-30" />
                 
@@ -365,16 +365,16 @@ export default function Home() {
               </div>
 
               {/* Right Column: Content wrapped inside a beautiful premium card box */}
-              <div className="lg:col-span-6 bg-logo-blue p-8 md:p-12 shadow-xl rounded-2xl space-y-6 md:space-y-8 text-left border border-white/10 relative overflow-hidden">
+              <div className="lg:col-span-6 bg-logo-blue p-5 md:p-8 shadow-xl rounded-2xl space-y-5 md:space-y-6 text-left border border-white/10 relative overflow-hidden">
                 {/* Visual subtle glow backgrounds */}
                 <div className="absolute -right-16 -top-16 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="absolute -left-16 -bottom-16 w-36 h-36 bg-accent-gold/10 rounded-full blur-2xl pointer-events-none" />
 
-                <div className="space-y-3 relative z-10">
-                  <span className="inline-block font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold bg-white px-3 py-1.5 rounded shadow-sm">
+                <div className="space-y-2 relative z-10">
+                  <span className="inline-block font-montserrat text-[8px] sm:text-[9px] tracking-[0.4em] text-accent-gold uppercase font-bold bg-white px-2 py-1.5 rounded shadow-sm">
                     Bespoke Service
                   </span>
-                  <h2 className="font-playfair text-3xl md:text-5xl font-bold text-white tracking-wide leading-tight">
+                  <h2 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-wide leading-tight">
                     Custom Curation Made Simple
                   </h2>
                 </div>
@@ -412,10 +412,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="pt-2 relative z-10">
+                <div className="pt-1 relative z-10">
                   <Link
                     href="/contact"
-                    className="inline-block font-montserrat text-xs tracking-widest uppercase px-8 py-4 bg-accent-gold hover:bg-accent-gold-dark text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform cursor-pointer border border-white/5"
+                    className="inline-block font-montserrat text-[10px] tracking-widest uppercase px-5 py-3 bg-accent-gold hover:bg-accent-gold-dark text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform cursor-pointer border border-white/5"
                   >
                     Submit Curation Request
                   </Link>

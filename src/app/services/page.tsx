@@ -772,15 +772,15 @@ export default function Services() {
 
       <main className="flex-grow pt-16 lg:pt-[72px] bg-secondary-bg min-h-screen">
         {/* Banner Section */}
-        <section className="bg-white py-3 lg:py-16 border-b border-border-linen/30">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 text-center md:text-left space-y-2 md:space-y-3">
-            <span className="font-montserrat text-[10px] tracking-[0.4em] text-accent-gold uppercase font-bold block">
+        <section className="bg-white py-1 lg:py-4 border-b border-border-linen/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center md:text-left space-y-1">
+            <span className="font-montserrat text-[8px] tracking-[0.4em] text-accent-gold uppercase font-bold block">
               Curated Catalog
             </span>
-            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-text-primary tracking-wide">
+            <h1 className="font-playfair text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-primary tracking-wide leading-snug">
               Personalized Photo Gifting
             </h1>
-            <p className="font-lato text-sm md:text-base text-text-secondary max-w-2xl leading-relaxed">
+            <p className="font-lato text-[10px] sm:text-[11px] md:text-xs text-text-secondary/90 max-w-2xl leading-relaxed">
               Explore all 26 signature product categories. Select a category below to jump directly to its options, and customize your piece via WhatsApp instant chat.
             </p>
           </div>
@@ -900,11 +900,11 @@ export default function Services() {
         </div>
 
         {/* Dual Layout for Desktop */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 lg:py-16 flex flex-col lg:flex-row gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 lg:py-10 flex flex-col lg:flex-row gap-6 md:gap-8">
           
           {/* Sticky Left Index (Desktop Only) */}
-          <aside className="hidden lg:block w-72 shrink-0">
-            <div className="sticky top-28 bg-white border border-border-linen/40 p-8 shadow-sm flex flex-col max-h-[80vh] overflow-y-auto no-scrollbar rounded-2xl">
+          <aside className="hidden lg:block w-64 shrink-0">
+            <div className="sticky top-28 bg-white border border-border-linen/40 p-5 shadow-sm flex flex-col max-h-[80vh] overflow-y-auto no-scrollbar rounded-2xl">
               <span className="font-montserrat text-[9px] tracking-[0.3em] uppercase text-accent-gold font-bold mb-4 block">
                 Catalog Index
               </span>
@@ -958,7 +958,7 @@ export default function Services() {
                 <div
                   key={cat.id}
                   id={cat.id}
-                  className="bg-white border border-border-linen/30 shadow-sm p-4 md:p-6 lg:p-8 flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8 scroll-mt-28 transition-all duration-500 hover:shadow-md rounded-2xl"
+                  className="bg-white border border-border-linen/30 shadow-sm p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col lg:flex-row gap-3.5 sm:gap-4 md:gap-5 lg:gap-6 scroll-mt-28 transition-all duration-500 hover:shadow-md rounded-2xl"
                 >
                   {/* Visual Section */}
                   {cat.images ? (
@@ -1077,12 +1077,10 @@ export default function Services() {
                       <span className="font-montserrat text-[8.5px] tracking-[0.3em] uppercase text-accent-gold font-bold block">
                         Category Collection
                       </span>
-                      <h2 className="font-playfair text-xl sm:text-2xl font-bold text-text-primary tracking-wide leading-tight">
+                      <h2 className="font-playfair text-lg sm:text-xl font-bold text-text-primary tracking-wide leading-tight">
                         {cat.name}
                       </h2>
-                      <p className="font-lato text-xs sm:text-[13px] text-text-secondary leading-relaxed">
-                        {cat.description}
-                      </p>
+
 
                       {/* Sub-products lists */}
                       <div className="pt-1">
@@ -1103,7 +1101,7 @@ export default function Services() {
                                     setTimeout(() => setPaused(cat.id, false), 5000);
                                   }}
                                   title={`View ${sub}`}
-                                  className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border transition-all duration-500 cursor-pointer focus:outline-none ${
+                                  className={`font-montserrat text-[8px] sm:text-[8.5px] tracking-wider uppercase px-2 py-0.5 border transition-all duration-500 cursor-pointer focus:outline-none ${
                                     isActiveSlide
                                       ? "bg-accent-gold text-white border-accent-gold font-bold scale-105 shadow-sm"
                                       : "bg-secondary-bg text-text-primary border-border-linen/35 hover:border-accent-gold/60 hover:text-accent-gold-dark"
@@ -1117,7 +1115,7 @@ export default function Services() {
                             return (
                               <span
                                 key={sIdx}
-                                className={`font-montserrat text-[9px] sm:text-[9.5px] tracking-wider uppercase px-2.5 py-1 border ${
+                                className={`font-montserrat text-[8px] sm:text-[8.5px] tracking-wider uppercase px-2 py-0.5 border ${
                                   isSingleProduct
                                     ? "bg-accent-gold text-white border-accent-gold font-bold shadow-sm"
                                     : "bg-secondary-bg text-text-primary border-border-linen/35"

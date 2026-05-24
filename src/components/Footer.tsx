@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="md:col-span-2 flex flex-col space-y-6">
           <Link href="/" className="flex items-center group">
             <img
-              src="/logo.png"
+              src="/logo-removebg-preview.webp"
               alt="Ink Well Colour Crafts Studio Logo"
               className="h-12 w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
             />
