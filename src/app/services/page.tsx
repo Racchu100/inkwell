@@ -326,9 +326,16 @@ const catalogCategories: ProductCatalogItem[] = [
     id: "cards",
     num: "24",
     name: "Cards (Identity, Business & Invitations)",
-    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600",
+    image: "/card_id.jpg",
+    images: [
+      "/card_id.jpg",
+      "/card_cert.jpg",
+      "/card_business.jpg",
+      "/card_wedding.jpg",
+      "/card_digital.jpg",
+    ],
     description: "Premium quality cards printed on thick, luxury card stock with UV coating, spot gloss, or matte lamination. From professional identity and business cards to beautifully designed certificates and invitation cards.",
-    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation", "Invitation Cards (Wedding / Birthday / Event)", "Thank You & Greeting Cards"],
+    subproducts: ["Identity Cards (PVC / Matt Laminated)", "Certificates (A4 / A5 Custom Design)", "Business Cards (Standard / Square / Rounded)", "Wedding Invitation Posters", "Digital Invitation"],
   },
   {
     id: "photo-frames",
@@ -394,6 +401,8 @@ export default function Services() {
   const [babyBoardPaused, setBabyBoardPaused] = useState(false);
   const [posterSlide, setPosterSlide] = useState(0);
   const [posterPaused, setPosterPaused] = useState(false);
+  const [cardSlide, setCardSlide] = useState(0);
+  const [cardPaused, setCardPaused] = useState(false);
 
   // Auto-advance keychain carousel every 3 seconds
   useEffect(() => {
@@ -584,6 +593,15 @@ export default function Services() {
     return () => clearInterval(timer);
   }, [posterPaused]);
 
+  // Auto-advance cards carousel every 3 seconds
+  useEffect(() => {
+    if (cardPaused) return;
+    const timer = setInterval(() => {
+      setCardSlide((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [cardPaused]);
+
   // Helper: get active slide index for a category
   const getSlide = (catId: string) =>
     catId === "wallets" ? walletSlide
@@ -606,6 +624,7 @@ export default function Services() {
     : catId === "album-design" ? albumSlide
     : catId === "baby-name-board" ? babyBoardSlide
     : catId === "poster-banner" ? posterSlide
+    : catId === "cards" ? cardSlide
     : keychainSlide;
   const setSlide = (catId: string, idx: number) => {
     if (catId === "wallets") setWalletSlide(idx);
@@ -628,6 +647,7 @@ export default function Services() {
     else if (catId === "album-design") setAlbumSlide(idx);
     else if (catId === "baby-name-board") setBabyBoardSlide(idx);
     else if (catId === "poster-banner") setPosterSlide(idx);
+    else if (catId === "cards") setCardSlide(idx);
     else setKeychainSlide(idx);
   };
   const setPaused = (catId: string, val: boolean) => {
@@ -651,6 +671,7 @@ export default function Services() {
     else if (catId === "album-design") setAlbumPaused(val);
     else if (catId === "baby-name-board") setBabyBoardPaused(val);
     else if (catId === "poster-banner") setPosterPaused(val);
+    else if (catId === "cards") setCardPaused(val);
     else setKeychainPaused(val);
   };
 
