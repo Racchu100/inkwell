@@ -189,7 +189,7 @@ export default function Home() {
                       <div className="animate-[fade-in-up_0.8s_ease]">
                         <Link
                           href={slide.ctaLink}
-                          className="font-montserrat text-xs tracking-widest uppercase px-8 py-3.5 bg-accent-gold hover:bg-accent-gold-dark text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-accent-gold/20"
+                          className="font-montserrat text-[10px] tracking-widest uppercase px-5 py-2 bg-accent-gold hover:bg-accent-gold-dark text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-accent-gold/15"
                         >
                           {slide.ctaText}
                         </Link>
